@@ -38,8 +38,8 @@ public class ITS_TBL_Interview_Schedule_Entity {
 	@Column(name="empHRInterviewTime")
 	private LocalDate empHRInterviewTime;
 	
-	@Column(name="HRRating")
-	private int hrRating;
+	@Column(name="empHRRating")
+	private int empHRRating;
 	
 	@Column(name="Result")
 	private String result;
@@ -89,11 +89,11 @@ public class ITS_TBL_Interview_Schedule_Entity {
 	public void setEmpHRInterviewTime(LocalDate empHRInterviewTime) {
 		this.empHRInterviewTime = empHRInterviewTime;
 	}
-	public int getHrRating() {
-		return hrRating;
+	public int geEmptHRRating() {
+		return empHRRating;
 	}
-	public void setHRRating(int hrRating) {
-		this.hrRating = hrRating;
+	public void setEmpHRRating(int empHRRating) {
+		this.empHRRating = empHRRating;
 	}
 	public String getResult() {
 		return result;

@@ -11,10 +11,10 @@ public class ITS_TBL_Interview_Schedule {
 	private int techRating;
 	private LocalDate empHRInterviewDate;
 	private LocalDate empHRInterviewTime;
-	private int hrRating;
+	private int empHRRating;
 	private String result;
 	private int shareResult;
-		
+	
 	public String getInterviewId() {
 		return interviewId;
 	}
@@ -57,11 +57,11 @@ public class ITS_TBL_Interview_Schedule {
 	public void setEmpHRInterviewTime(LocalDate empHRInterviewTime) {
 		this.empHRInterviewTime = empHRInterviewTime;
 	}
-	public int getHrRating() {
-		return hrRating;
+	public int getEmpHRRating() {
+		return empHRRating;
 	}
-	public void setHrRating(int hrRating) {
-		this.hrRating = hrRating;
+	public void setEmpHRRating(int empHRRating) {
+		this.empHRRating = empHRRating;
 	}
 	public String getResult() {
 		return result;
@@ -75,6 +75,7 @@ public class ITS_TBL_Interview_Schedule {
 	public void setShareResult(int shareResult) {
 		this.shareResult = shareResult;
 	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		ITS_TBL_Interview_Schedule its_schedule = (ITS_TBL_Interview_Schedule) obj;
