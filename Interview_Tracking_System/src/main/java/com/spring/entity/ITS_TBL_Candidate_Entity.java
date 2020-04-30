@@ -19,7 +19,7 @@ public class ITS_TBL_Candidate_Entity {
 	@Id
 	@GeneratedValue 	
 	@Column(name="CandidateId")
-	private String CandidateId;
+	private String candidateId;
 	
 	@Column(name="PrimarySkills")
 	private String primarySkills;
@@ -35,7 +35,7 @@ public class ITS_TBL_Candidate_Entity {
 	
 	@Column(name="NoticePeriod")
 	private String designation;
-	private int noticeperiod;
+	private int noticePeriod;
 	
 	@Column(name="Location")
 	private String location;
@@ -49,10 +49,10 @@ public class ITS_TBL_Candidate_Entity {
 	
 	
 	public String getCandidateId() {
-		return CandidateId;
+		return candidateId;
 	}
 	public void setCandidateId(String candidateId) {
-		CandidateId = candidateId;
+		candidateId = candidateId;
 	}
 	public String getPrimarySkills() {
 		return primarySkills;
@@ -84,11 +84,11 @@ public class ITS_TBL_Candidate_Entity {
 	public void setDesignation(String designation) {
 		this.designation = designation;
 	}
-	public int getNoticeperiod() {
-		return noticeperiod;
+	public int getNoticePeriod() {
+		return noticePeriod;
 	}
-	public void setNoticeperiod(int noticeperiod) {
-		this.noticeperiod = noticeperiod;
+	public void setNoticePeriod(int noticePeriod) {
+		this.noticePeriod = noticePeriod;
 	}
 	public String getLocation() {
 		return location;

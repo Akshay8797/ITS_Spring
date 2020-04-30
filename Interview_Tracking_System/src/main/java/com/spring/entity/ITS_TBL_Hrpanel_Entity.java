@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "its_tbl_hrpanel")
+@Table(name = "ITS_TBL_HR_Panel")
 public class ITS_TBL_Hrpanel_Entity {
 	@Id
 	@GeneratedValue
@@ -22,7 +22,7 @@ public class ITS_TBL_Hrpanel_Entity {
 	@Column(name = "empHrName")
 	private String empHrName;
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "its_tbl_hrpanel_entity")
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "ITS_TBL_HR_Panel")
 	private Set<ITS_TBL_Interview_Schedule_Entity> interviewSchedule;
 
 	public ITS_TBL_Hrpanel_Entity(long empHrId, String empHrName) {

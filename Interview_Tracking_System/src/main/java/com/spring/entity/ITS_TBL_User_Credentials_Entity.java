@@ -11,34 +11,34 @@ public class ITS_TBL_User_Credentials_Entity {
 	private long id;
 
 	@Column(name = "USERID")
-	private String userid;
+	private String userId;
 
 	@Column(name = "PASSWORD")
 	private String password;
 
 	@Column(name = "USERTYPE")
-	private String usertype;
+	private String userType;
 
 	@Column(name = "LOGINSTATUS")
-	private String loginstatus;
+	private String loginStatus;
 
 	public ITS_TBL_User_Credentials_Entity() {
 		super();
 	}
 
-	public ITS_TBL_User_Credentials_Entity(String userid, String password, String usertype, String loginstatus) {
+	public ITS_TBL_User_Credentials_Entity(String userId, String password, String userType, String loginStatus) {
 		super();
-		this.userid = userid;
+		this.userId = userId;
 		this.password = password;
-		this.usertype = usertype;
-		this.loginstatus = loginstatus;
+		this.userType = userType;
+		this.loginStatus = loginStatus;
 	}
 
-	public ITS_TBL_User_Credentials_Entity(String userid, String password, String usertype) {
+	public ITS_TBL_User_Credentials_Entity(String userId, String password, String userType) {
 		super();
-		this.userid = userid;
+		this.userId = userId;
 		this.password = password;
-		this.usertype = usertype;
+		this.userType = userType;
 	}
 
 	public long getId() {
@@ -49,12 +49,12 @@ public class ITS_TBL_User_Credentials_Entity {
 		this.id = id;
 	}
 
-	public String getUserid() {
-		return userid;
+	public String getUserId() {
+		return userId;
 	}
 
-	public void setUserid(String userid) {
-		this.userid = userid;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 
 	public String getPassword() {
@@ -65,20 +65,20 @@ public class ITS_TBL_User_Credentials_Entity {
 		this.password = password;
 	}
 
-	public String getUsertype() {
-		return usertype;
+	public String getUserType() {
+		return userType;
 	}
 
-	public void setUsertype(String usertype) {
-		this.usertype = usertype;
+	public void setUserType(String userType) {
+		this.userType = userType;
 	}
 
-	public String getLoginstatus() {
-		return loginstatus;
+	public String getLoginStatus() {
+		return loginStatus;
 	}
 
-	public void setLoginstatus(String loginstatus) {
-		this.loginstatus = loginstatus;
+	public void setLoginStatus(String loginStatus) {
+		this.loginStatus = loginStatus;
 	}
 
 }

@@ -164,10 +164,5 @@ public class ITS_TBL_User_Profile_Entity {
 				+ lastName + ", dateOfBirth=" + dateOfBirth + ", gender=" + gender + ", street=" + street
 				+ ", location=" + location + ", city=" + city + ", state=" + state + ", pincode=" + pincode
 				+ ", mobileNo=" + mobileNo + ", emailId=" + emailId + "]";
-	}
-	
-	
-	
-	
-	
+	}	
 }
