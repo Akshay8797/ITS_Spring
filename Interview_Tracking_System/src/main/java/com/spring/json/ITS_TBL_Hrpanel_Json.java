@@ -1,28 +1,23 @@
 package com.spring.json;
 
 public class ITS_TBL_Hrpanel_Json {
-	private long empHrId;
-	private String empHrName;
+	private long empHRId;
+	private String empHRName;
 
-	public long getEmpHrId() {
-		return empHrId;
+	public long getEmpHRId() {
+		return empHRId;
 	}
-
-	public void setEmpHrId(long empHrId) {
-		this.empHrId = empHrId;
+	public void setEmpHRId(long empHRId) {
+		this.empHRId = empHRId;
 	}
-
-	public String getEmpHrName() {
-		return empHrName;
+	public String getEmpHRName() {
+		return empHRName;
 	}
-
-	public void setEmpHrName(String empHrName) {
-		this.empHrName = empHrName;
+	public void setEmpHrName(String empHRName) {
+		this.empHRName = empHRName;
 	}
-
 	@Override
 	public String toString() {
-		return "ITS_TBL_Hrpanel_Json [empHrId=" + empHrId + ", empHrName=" + empHrName + "]";
+		return "ITS_TBL_Hrpanel_Json [empHRId=" + empHRId + ", empHRName=" + empHRName + "]";
 	}
-
 }

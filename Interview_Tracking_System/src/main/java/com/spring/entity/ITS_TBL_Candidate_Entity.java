@@ -52,7 +52,7 @@ public class ITS_TBL_Candidate_Entity {
 		return candidateId;
 	}
 	public void setCandidateId(String candidateId) {
-		candidateId = candidateId;
+		this.candidateId = candidateId;
 	}
 	public String getPrimarySkills() {
 		return primarySkills;

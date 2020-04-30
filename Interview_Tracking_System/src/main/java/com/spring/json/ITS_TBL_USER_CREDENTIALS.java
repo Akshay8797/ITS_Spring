@@ -53,5 +53,5 @@ public class ITS_TBL_USER_CREDENTIALS {
 	public void setLoginStatus(String loginStatus) {
 		this.loginStatus = loginStatus;
 	}
-		
+	
 }

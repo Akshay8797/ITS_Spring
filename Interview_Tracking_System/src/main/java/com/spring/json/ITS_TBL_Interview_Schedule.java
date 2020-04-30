@@ -82,5 +82,4 @@ public class ITS_TBL_Interview_Schedule {
 			return true;
 		return false;
 	}
-
 }

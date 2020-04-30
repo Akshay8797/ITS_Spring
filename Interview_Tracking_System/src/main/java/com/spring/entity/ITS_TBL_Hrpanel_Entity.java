@@ -29,25 +29,19 @@ public class ITS_TBL_Hrpanel_Entity {
 		this.empHrId = empHrId;
 		this.empHrName = empHrName;
 	}
-
 	public ITS_TBL_Hrpanel_Entity(String empHrName) {
 		this.empHrName = empHrName;
 	}
-
 	public long getEmpHrId() {
 		return empHrId;
 	}
-
 	public void setEmpHrId(long empHrId) {
 		this.empHrId = empHrId;
 	}
-
 	public String getEmpHrName() {
 		return empHrName;
 	}
-
 	public void setEmpHrName(String empHrName) {
 		this.empHrName = empHrName;
 	}
-
 }
