@@ -20,16 +20,8 @@ public class ITS_TBL_Interview_Schedule_Entity {
 	@Column(name="InterviewID")
 	private String InterviewID;
 	
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinColumn(name="CandidateID")
-	@Column(name="CandidateID")
-	private String CandidateID;
-	
 	@Column(name="Subject")
 	private String Subject;
-	
-	@Column(name="TechID")
-	private int TechID;
 	
 	@Column(name="InterviewDate")
 	private LocalDate InterviewDate;
@@ -39,11 +31,6 @@ public class ITS_TBL_Interview_Schedule_Entity {
 	
 	@Column(name="TechRating")
 	private int TechRating;
-	
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinColumn(name="empHRID")
-	@Column(name="empHRID")
-	private int empHRID;
 	
 	@Column(name="empHRInterviewDate")
 	private LocalDate empHRInterviewDate;
@@ -68,28 +55,12 @@ public class ITS_TBL_Interview_Schedule_Entity {
 		InterviewID = interviewID;
 	}
 
-	public String getCandidateID() {
-		return CandidateID;
-	}
-
-	public void setCandidateID(String candidateID) {
-		CandidateID = candidateID;
-	}
-
-	public String getSubject() {
+		public String getSubject() {
 		return Subject;
 	}
 
 	public void setSubject(String subject) {
 		Subject = subject;
-	}
-
-	public int getTechID() {
-		return TechID;
-	}
-
-	public void setTechID(int techID) {
-		TechID = techID;
 	}
 
 	public LocalDate getInterviewDate() {
@@ -114,14 +85,6 @@ public class ITS_TBL_Interview_Schedule_Entity {
 
 	public void setTechRating(int techRating) {
 		TechRating = techRating;
-	}
-
-	public int getEmpHRID() {
-		return empHRID;
-	}
-
-	public void setEmpHRID(int empHRID) {
-		this.empHRID = empHRID;
 	}
 
 	public LocalDate getEmpHRInterviewDate() {

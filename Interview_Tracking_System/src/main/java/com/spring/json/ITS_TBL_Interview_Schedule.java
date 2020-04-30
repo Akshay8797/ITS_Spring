@@ -5,13 +5,10 @@ import java.time.LocalTime;
 
 public class ITS_TBL_Interview_Schedule {
 	private String InterviewID;
-	private String CandidateID;
 	private String Subject;
-	private int TechID;
 	private LocalDate InterviewDate;
 	private LocalTime InterviewTime;
 	private int TechRating;
-	private int empHRID;
 	private LocalDate empHRInterviewDate;
 	private LocalDate empHRInterviewTime;
 	private int HRRating;
@@ -24,23 +21,11 @@ public class ITS_TBL_Interview_Schedule {
 	public void setInterviewID(String interviewID) {
 		InterviewID = interviewID;
 	}
-	public String getCandidateID() {
-		return CandidateID;
-	}
-	public void setCandidateID(String candidateID) {
-		CandidateID = candidateID;
-	}
 	public String getSubject() {
 		return Subject;
 	}
 	public void setSubject(String subject) {
 		Subject = subject;
-	}
-	public int getTechID() {
-		return TechID;
-	}
-	public void setTechID(int techID) {
-		TechID = techID;
 	}
 	public LocalDate getInterviewDate() {
 		return InterviewDate;
@@ -59,12 +44,6 @@ public class ITS_TBL_Interview_Schedule {
 	}
 	public void setTechRating(int techRating) {
 		TechRating = techRating;
-	}
-	public int getEmpHRID() {
-		return empHRID;
-	}
-	public void setEmpHRID(int empHRID) {
-		this.empHRID = empHRID;
 	}
 	public LocalDate getEmpHRInterviewDate() {
 		return empHRInterviewDate;

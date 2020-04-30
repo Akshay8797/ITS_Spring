@@ -2,12 +2,12 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>SpringRestful</groupId>
-  <artifactId>SpringRestful</artifactId>
+  <groupId>Interview_Tracking_System</groupId>
+  <artifactId>Interview_Tracking_System</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>SpringRestful</name>
+  <name>Interview_Tracking_System</name>
   <url>http://maven.apache.org</url>
 
   <properties>
