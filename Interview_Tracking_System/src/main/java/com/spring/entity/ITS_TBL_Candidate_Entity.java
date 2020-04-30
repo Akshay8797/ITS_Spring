@@ -40,6 +40,9 @@ public class ITS_TBL_Candidate_Entity {
 	@Column(name="Location")
 	private String location;
 	
+	@Column(name="ShareDetails")
+	private int shareDetails;
+	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name="CandidateId")
 	private List<ITS_TBL_Interview_Schedule_Entity> interviewScheduleList;
@@ -92,6 +95,18 @@ public class ITS_TBL_Candidate_Entity {
 	}
 	public void setLocation(String location) {
 		this.location = location;
+	}
+	public int getShareDetails() {
+		return shareDetails;
+	}
+	public void setShareDetails(int shareDetails) {
+		this.shareDetails = shareDetails;
+	}
+	public List<ITS_TBL_Interview_Schedule_Entity> getInterviewScheduleList() {
+		return interviewScheduleList;
+	}
+	public void setInterviewScheduleList(List<ITS_TBL_Interview_Schedule_Entity> interviewScheduleList) {
+		this.interviewScheduleList = interviewScheduleList;
 	}
 
 }

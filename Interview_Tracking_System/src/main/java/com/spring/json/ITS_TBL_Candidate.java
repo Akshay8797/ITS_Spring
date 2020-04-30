@@ -10,6 +10,7 @@ private String qualification;
 private String designation;
 private int noticeperiod;
 private String location;
+private int shareDetails;
 
 public String getPrimarySkills() {
 	return primarySkills;
@@ -58,6 +59,12 @@ public String getCandidateId() {
 }
 public void setCandidateId(String candidateId) {
 	CandidateId = candidateId;
+}
+public int getShareDetails() {
+	return shareDetails;
+}
+public void setShareDetails(int shareDetails) {
+	this.shareDetails = shareDetails;
 }
 
 }
