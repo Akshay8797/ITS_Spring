@@ -1,8 +1,21 @@
 package com.spring.json;
 
+import java.util.List;
+
+import com.spring.entity.ITS_TBL_Interview_Schedule_Entity;
+
 public class ITS_TBL_Hrpanel_Json {
 	private long empHRId;
 	private String empHRName;
+	private List<ITS_TBL_Interview_Schedule_Entity> interviewScheduleList;
+	
+	public List<ITS_TBL_Interview_Schedule_Entity> getInterviewScheduleList() {
+		return interviewScheduleList;
+	}
+	public void setInterviewScheduleList(List<ITS_TBL_Interview_Schedule_Entity> interviewScheduleList) {
+		this.interviewScheduleList = interviewScheduleList;
+	}
+
 
 	public long getEmpHRId() {
 		return empHRId;

@@ -19,26 +19,31 @@ public class ITS_TBL_Hrpanel_Entity {
 	@Id
 	@GeneratedValue
 	@Column(name = "empHrId")
-	private long empHrId;
+	private String empHrId;
 
 	@Column(name = "empHrName")
 	private String empHrName;
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinColumn(name="empHRId")
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY,mappedBy="hrEntity")
 	private List<ITS_TBL_Interview_Schedule_Entity> interviewScheduleList;
-	
-	public ITS_TBL_Hrpanel_Entity(long empHrId, String empHrName) {
+
+	public List<ITS_TBL_Interview_Schedule_Entity> getInterviewScheduleList() {
+		return interviewScheduleList;
+	}
+	public void setInterviewScheduleList(List<ITS_TBL_Interview_Schedule_Entity> interviewScheduleList) {
+		this.interviewScheduleList = interviewScheduleList;
+	}
+	public ITS_TBL_Hrpanel_Entity(String empHrId, String empHrName) {
 		this.empHrId = empHrId;
 		this.empHrName = empHrName;
 	}
 	public ITS_TBL_Hrpanel_Entity(String empHrName) {
 		this.empHrName = empHrName;
 	}
-	public long getEmpHrId() {
+	public String getEmpHrId() {
 		return empHrId;
 	}
-	public void setEmpHrId(long empHrId) {
+	public void setEmpHrId(String empHrId) {
 		this.empHrId = empHrId;
 	}
 	public String getEmpHrName() {

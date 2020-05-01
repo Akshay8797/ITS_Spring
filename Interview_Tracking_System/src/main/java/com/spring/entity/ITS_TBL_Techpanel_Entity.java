@@ -19,19 +19,24 @@ public class ITS_TBL_Techpanel_Entity {
 	@Id
 	@GeneratedValue
 	@Column(name = "techId")
-	private long techId;
+	private String techId;
 
 	@Column(name = "techName")
 	private String techName;
 
+	public List<ITS_TBL_Interview_Schedule_Entity> getInterviewScheduleList() {
+		return interviewScheduleList;
+	}
+	public void setInterviewScheduleList(List<ITS_TBL_Interview_Schedule_Entity> interviewScheduleList) {
+		this.interviewScheduleList = interviewScheduleList;
+	}
 	@Column(name = "Subjects")
 	private String subjects;
-
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinColumn(name="TechId")
+	
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY,mappedBy="candidateEntity")
 	private List<ITS_TBL_Interview_Schedule_Entity> interviewScheduleList;
 	
-	public ITS_TBL_Techpanel_Entity(long techId, String techName, String subjects) {
+	public ITS_TBL_Techpanel_Entity(String techId, String techName, String subjects) {
 		this.techId = techId;
 		this.techName = techName;
 		this.subjects = subjects;
@@ -40,10 +45,10 @@ public class ITS_TBL_Techpanel_Entity {
 		this.techName = techName;
 		this.subjects = subjects;
 	}
-	public long getTechId() {
+	public String getTechId() {
 		return techId;
 	}
-	public void setTechId(long techId) {
+	public void setTechId(String techId) {
 		this.techId = techId;
 	}
 	public String getTechName() {

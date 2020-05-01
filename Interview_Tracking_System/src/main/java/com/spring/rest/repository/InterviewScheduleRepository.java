@@ -10,8 +10,4 @@ public interface InterviewScheduleRepository extends JpaRepository<ITS_TBL_Inter
 
 	ITS_TBL_Interview_Schedule_Entity findByInterviewId(String interviewId);
 	
-
-
-	
-	
 }
