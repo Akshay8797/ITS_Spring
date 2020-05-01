@@ -47,7 +47,16 @@ public class ITS_TBL_Candidate_Entity {
 	@JoinColumn(name="CandidateId")
 	private List<ITS_TBL_Interview_Schedule_Entity> interviewScheduleList;
 	
+	@OneToOne(cascade= CascadeType.ALL , fetch=FetchType.LAZY)
+	@JoinColumn(name="CandidateId")
+	private ITS_TBL_User_Profile_Entity its_tbl_user_profile_entity;
 	
+	public ITS_TBL_User_Profile_Entity getIts_tbl_user_profile_entity() {
+		return its_tbl_user_profile_entity;
+	}
+	public void setIts_tbl_user_profile_entity(ITS_TBL_User_Profile_Entity its_tbl_user_profile_entity) {
+		this.its_tbl_user_profile_entity = its_tbl_user_profile_entity;
+	}
 	public String getCandidateId() {
 		return candidateId;
 	}
