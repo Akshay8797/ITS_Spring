@@ -31,6 +31,12 @@ public class ITS_TBL_Techpanel_Entity {
 	@JoinColumn(name="TechId")
 	private List<ITS_TBL_Interview_Schedule_Entity> interviewScheduleList;
 	
+	public List<ITS_TBL_Interview_Schedule_Entity> getInterviewScheduleList() {
+		return interviewScheduleList;
+	}
+	public void setInterviewScheduleList(List<ITS_TBL_Interview_Schedule_Entity> interviewScheduleList) {
+		this.interviewScheduleList = interviewScheduleList;
+	}
 	public ITS_TBL_Techpanel_Entity(long techId, String techName, String subjects) {
 		this.techId = techId;
 		this.techName = techName;

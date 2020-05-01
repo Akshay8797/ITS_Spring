@@ -28,6 +28,12 @@ public class ITS_TBL_Hrpanel_Entity {
 	@JoinColumn(name="empHRId")
 	private List<ITS_TBL_Interview_Schedule_Entity> interviewScheduleList;
 	
+	public List<ITS_TBL_Interview_Schedule_Entity> getInterviewScheduleList() {
+		return interviewScheduleList;
+	}
+	public void setInterviewScheduleList(List<ITS_TBL_Interview_Schedule_Entity> interviewScheduleList) {
+		this.interviewScheduleList = interviewScheduleList;
+	}
 	public ITS_TBL_Hrpanel_Entity(long empHrId, String empHrName) {
 		this.empHrId = empHrId;
 		this.empHrName = empHrName;
