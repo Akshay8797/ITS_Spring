@@ -15,6 +15,24 @@ public class ITS_TBL_Interview_Schedule {
 	private String result;
 	private int shareResult;
 	
+	
+	
+	
+	public ITS_TBL_Interview_Schedule(String interviewId, String subject, LocalDate interviewDate,
+		LocalTime interviewTime, int techRating, LocalDate empHRInterviewDate, LocalDate empHRInterviewTime,
+		int empHRRating, String result, int shareResult) {
+		super();
+		this.interviewId = interviewId;
+		this.subject = subject;
+		this.interviewDate = interviewDate;
+		this.interviewTime = interviewTime;
+		this.techRating = techRating;
+		this.empHRInterviewDate = empHRInterviewDate;
+		this.empHRInterviewTime = empHRInterviewTime;
+		this.empHRRating = empHRRating;
+		this.result = result;
+		this.shareResult = shareResult;
+	}
 	public String getInterviewId() {
 		return interviewId;
 	}

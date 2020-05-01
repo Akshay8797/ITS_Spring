@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -33,8 +34,10 @@ public class ITS_TBL_Candidate_Entity {
 	@Column(name="Qualification")
 	private String qualification;
 	
-	@Column(name="NoticePeriod")
+	@Column(name="Designation")
 	private String designation;
+	
+	@Column(name="NoticePeriod")
 	private int noticePeriod;
 	
 	@Column(name="Location")
@@ -48,9 +51,27 @@ public class ITS_TBL_Candidate_Entity {
 	private List<ITS_TBL_Interview_Schedule_Entity> interviewScheduleList;
 	
 	
+	
+	public ITS_TBL_Candidate_Entity(String candidateId, String primarySkills, String secondarySkills, int experience,
+		String qualification, String designation, int noticePeriod, String location, int shareDetails,
+		List<ITS_TBL_Interview_Schedule_Entity> interviewScheduleList) {
+		super();
+		this.candidateId = candidateId;
+		this.primarySkills = primarySkills;
+		this.secondarySkills = secondarySkills;
+		this.experience = experience;
+		this.qualification = qualification;
+		this.designation = designation;
+		this.noticePeriod = noticePeriod;
+		this.location = location;
+		this.shareDetails = shareDetails;
+		this.interviewScheduleList = interviewScheduleList;
+	}
+	
 	public String getCandidateId() {
 		return candidateId;
 	}
+	
 	public void setCandidateId(String candidateId) {
 		this.candidateId = candidateId;
 	}

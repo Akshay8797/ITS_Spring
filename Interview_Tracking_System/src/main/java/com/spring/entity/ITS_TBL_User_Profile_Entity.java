@@ -1,21 +1,27 @@
 package com.spring.entity;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="ITS_TBL_USER_PROFILE")
-public class ITS_TBL_User_Profile_Entity {
+public class ITS_TBL_User_Profile_Entity implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
+
 	@Id
-	@GeneratedValue
-	@Column(name="CandidateId")
-	private String candidateId;
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn(name="CandidateId")
+	private ITS_TBL_Candidate_Entity candidate;
 	
 	@Column(name="Firstname")
 	private String firstName;
@@ -49,28 +55,8 @@ public class ITS_TBL_User_Profile_Entity {
 	
 	@Column(name="EmailId")
 	private String emailId;
-
-	public ITS_TBL_User_Profile_Entity() {
-		
-	}
-	public ITS_TBL_User_Profile_Entity(String candidateId, String firstName, String lastName, LocalDate dateOfBirth,
-			String gender, String street, String location, String city, String state, String pincode, String mobileNo,
-			String emailId) {
-		super();
-		this.candidateId = candidateId;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.dateOfBirth = dateOfBirth;
-		this.gender = gender;
-		this.street = street;
-		this.location = location;
-		this.city = city;
-		this.state = state;
-		this.pincode = pincode;
-		this.mobileNo = mobileNo;
-		this.emailId = emailId;
-	}
-	public ITS_TBL_User_Profile_Entity( String firstName, String lastName, LocalDate dateOfBirth,
+	
+	public ITS_TBL_User_Profile_Entity(String firstName, String lastName, LocalDate dateOfBirth,
 			String gender, String street, String location, String city, String state, String pincode, String mobileNo,
 			String emailId) {
 		super();
@@ -85,12 +71,6 @@ public class ITS_TBL_User_Profile_Entity {
 		this.pincode = pincode;
 		this.mobileNo = mobileNo;
 		this.emailId = emailId;
-	}
-	public String getCandidateId() {
-		return candidateId;
-	}
-	public void setCandidateId(String candidateId) {
-		this.candidateId = candidateId;
 	}
 	public String getFirstName() {
 		return firstName;
@@ -158,11 +138,5 @@ public class ITS_TBL_User_Profile_Entity {
 	public void setEmailId(String emailId) {
 		this.emailId = emailId;
 	}
-	@Override
-	public String toString() {
-		return "ITS_TBL_User_Profile_Entity [candidateId=" + candidateId + ", firstName=" + firstName + ", lastName="
-				+ lastName + ", dateOfBirth=" + dateOfBirth + ", gender=" + gender + ", street=" + street
-				+ ", location=" + location + ", city=" + city + ", state=" + state + ", pincode=" + pincode
-				+ ", mobileNo=" + mobileNo + ", emailId=" + emailId + "]";
-	}	
+		
 }
