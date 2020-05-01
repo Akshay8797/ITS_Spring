@@ -13,7 +13,6 @@ import javax.persistence.Table;
 public class ITS_TBL_User_Profile_Entity {
 	
 	@Id
-	@GeneratedValue
 	@Column(name="CandidateId")
 	private String candidateId;
 	
@@ -53,23 +52,7 @@ public class ITS_TBL_User_Profile_Entity {
 	public ITS_TBL_User_Profile_Entity() {
 		
 	}
-	public ITS_TBL_User_Profile_Entity(String candidateId, String firstName, String lastName, LocalDate dateOfBirth,
-			String gender, String street, String location, String city, String state, String pincode, String mobileNo,
-			String emailId) {
-		super();
-		this.candidateId = candidateId;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.dateOfBirth = dateOfBirth;
-		this.gender = gender;
-		this.street = street;
-		this.location = location;
-		this.city = city;
-		this.state = state;
-		this.pincode = pincode;
-		this.mobileNo = mobileNo;
-		this.emailId = emailId;
-	}
+	
 	public ITS_TBL_User_Profile_Entity( String firstName, String lastName, LocalDate dateOfBirth,
 			String gender, String street, String location, String city, String state, String pincode, String mobileNo,
 			String emailId) {
@@ -86,12 +69,7 @@ public class ITS_TBL_User_Profile_Entity {
 		this.mobileNo = mobileNo;
 		this.emailId = emailId;
 	}
-	public String getCandidateId() {
-		return candidateId;
-	}
-	public void setCandidateId(String candidateId) {
-		this.candidateId = candidateId;
-	}
+	
 	public String getFirstName() {
 		return firstName;
 	}
