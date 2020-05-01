@@ -10,6 +10,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="its_tbl_user_credentials")
 public class ITS_TBL_USER_CREDENTIALS_ENTITY {
+	@Id
 	@Column(name = "UserId")
 	private String userid;
 	

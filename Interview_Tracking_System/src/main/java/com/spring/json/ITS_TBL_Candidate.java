@@ -1,5 +1,9 @@
 package com.spring.json;
 
+import java.util.List;
+
+import com.spring.entity.ITS_TBL_Interview_Schedule_Entity;
+
 public class ITS_TBL_Candidate {
 
 	private String candidateId; 
@@ -11,6 +15,32 @@ public class ITS_TBL_Candidate {
 	private int noticePeriod;
 	private String location;
 	private int shareDetails;
+	private List<ITS_TBL_Interview_Schedule_Entity> interviewScheduleList;
+	
+	
+	
+	public ITS_TBL_Candidate(String candidateId, String primarySkills, String secondarySkills, int experience,
+			String qualification, String designation, int noticePeriod, String location, int shareDetails,
+			List<ITS_TBL_Interview_Schedule_Entity> interviewScheduleList) {
+		super();
+		this.candidateId = candidateId;
+		this.primarySkills = primarySkills;
+		this.secondarySkills = secondarySkills;
+		this.experience = experience;
+		this.qualification = qualification;
+		this.designation = designation;
+		this.noticePeriod = noticePeriod;
+		this.location = location;
+		this.shareDetails = shareDetails;
+		this.interviewScheduleList = interviewScheduleList;
+		
+	}
+	public List<ITS_TBL_Interview_Schedule_Entity> getInterviewScheduleList() {
+		return interviewScheduleList;
+	}
+	public void setInterviewScheduleList(List<ITS_TBL_Interview_Schedule_Entity> interviewScheduleList) {
+		this.interviewScheduleList = interviewScheduleList;
+	}
 	public String getCandidateId() {
 		return candidateId;
 	}
