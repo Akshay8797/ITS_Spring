@@ -1,9 +1,11 @@
+server:
+  port: 8083
 spring:
     datasource:
         driverClassName: com.mysql.jdbc.Driver
-        url: jdbc:mysql://localhost:3306/itsdb
+        url: jdbc:mysql://localhost:3306/check
         username: root
-        password: ark_angel
+        password: root
 
     jpa:
         generate-ddl: true

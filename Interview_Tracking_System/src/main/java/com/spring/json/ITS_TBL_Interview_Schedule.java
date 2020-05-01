@@ -33,6 +33,13 @@ public class ITS_TBL_Interview_Schedule {
 		this.result = result;
 		this.shareResult = shareResult;
 	}
+	
+	public ITS_TBL_Interview_Schedule(String subject, int techRating) {
+		super();
+		this.subject = subject;
+		this.techRating = techRating;
+	}
+
 	public String getInterviewId() {
 		return interviewId;
 	}
