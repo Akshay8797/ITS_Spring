@@ -22,7 +22,7 @@ public class ITS_TBL_User_Profile_Entity implements Serializable {
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name="CandidateId")
 	private ITS_TBL_Candidate_Entity candidate;
-	
+
 	@Column(name="Firstname")
 	private String firstName;
 	
