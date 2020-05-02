@@ -30,7 +30,7 @@ public class ITS_TBL_Interview_Schedule_Entity {
 	private LocalTime interviewTime;
 	
 	@Column(name="TechRating")
-	private Integer techRating;
+	private float techRating;
 	
 	@Column(name="empHRInterviewDate")
 	private LocalDate empHRInterviewDate;
@@ -50,7 +50,7 @@ public class ITS_TBL_Interview_Schedule_Entity {
 	public ITS_TBL_Interview_Schedule_Entity() {}
 
 	public ITS_TBL_Interview_Schedule_Entity(long interviewId, String subject, LocalDate interviewDate,
-		LocalTime interviewTime, Integer techRating, LocalDate empHRInterviewDate, LocalDate empHRInterviewTime,
+		LocalTime interviewTime, float techRating, LocalDate empHRInterviewDate, LocalDate empHRInterviewTime,
 		Integer empHRRating, String result, int shareResult) {
 		super();
 		this.interviewId = interviewId;
@@ -89,10 +89,10 @@ public class ITS_TBL_Interview_Schedule_Entity {
 	public void setInterviewTime(LocalTime interviewTime) {
 		this.interviewTime = interviewTime;
 	}
-	public Integer getTechRating() {
+	public float getTechRating() {
 		return techRating;
 	}
-	public void setTechRating(Integer techRating) {
+	public void setTechRating(float techRating) {
 		this.techRating = techRating;
 	}
 	public LocalDate getEmpHRInterviewDate() {
