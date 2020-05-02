@@ -19,31 +19,34 @@ public class ITS_TBL_Hrpanel_Entity {
 	@Id
 	@GeneratedValue
 	@Column(name = "empHrId")
-	private String empHrId;
+	private long empHrId;
 
+	public List<ITS_TBL_Interview_Schedule_Entity> getInterviewScheduleList() {
+		return interviewScheduleList;
+	}
+
+	public void setInterviewScheduleList(List<ITS_TBL_Interview_Schedule_Entity> interviewScheduleList) {
+		this.interviewScheduleList = interviewScheduleList;
+	}
 	@Column(name = "empHrName")
 	private String empHrName;
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY,mappedBy="hrEntity")
 	private List<ITS_TBL_Interview_Schedule_Entity> interviewScheduleList;
-
-	public List<ITS_TBL_Interview_Schedule_Entity> getInterviewScheduleList() {
-		return interviewScheduleList;
-	}
-	public void setInterviewScheduleList(List<ITS_TBL_Interview_Schedule_Entity> interviewScheduleList) {
-		this.interviewScheduleList = interviewScheduleList;
-	}
-	public ITS_TBL_Hrpanel_Entity(String empHrId, String empHrName) {
+	
+	public ITS_TBL_Hrpanel_Entity() {}
+	
+	public ITS_TBL_Hrpanel_Entity(long empHrId, String empHrName) {
 		this.empHrId = empHrId;
 		this.empHrName = empHrName;
 	}
 	public ITS_TBL_Hrpanel_Entity(String empHrName) {
 		this.empHrName = empHrName;
 	}
-	public String getEmpHrId() {
+	public long getEmpHrId() {
 		return empHrId;
 	}
-	public void setEmpHrId(String empHrId) {
+	public void setEmpHrId(long empHrId) {
 		this.empHrId = empHrId;
 	}
 	public String getEmpHrName() {

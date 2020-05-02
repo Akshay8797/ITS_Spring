@@ -46,11 +46,13 @@ public class ITS_TBL_Candidate_Entity {
 	@Column(name="ShareDetails")
 	private int shareDetails;
 	
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinColumn(name="CandidateId")
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy="candidateEntity")
 	private List<ITS_TBL_Interview_Schedule_Entity> interviewScheduleList;
 	
+	@OneToOne(mappedBy = "candidate")
+    private ITS_TBL_User_Profile_Entity user;
 	
+	public ITS_TBL_Candidate_Entity() {}
 	
 	public ITS_TBL_Candidate_Entity(String candidateId, String primarySkills, String secondarySkills, int experience,
 		String qualification, String designation, int noticePeriod, String location, int shareDetails,

@@ -17,13 +17,13 @@ public class InterviewScheduleUtils {
 		}
 		
 		public static ITS_TBL_Interview_Schedule convertScheduleEntityToSchedule(ITS_TBL_Interview_Schedule_Entity scheduleEntity) {
-			return new ITS_TBL_Interview_Schedule(scheduleEntity.getInterviewId(),scheduleEntity.getSubject(),scheduleEntity.getInterviewDate(),
+			return new ITS_TBL_Interview_Schedule(scheduleEntity.getSubject(),scheduleEntity.getInterviewDate(),
 					scheduleEntity.getInterviewTime(),scheduleEntity.getTechRating(),scheduleEntity.getEmpHRInterviewDate(),scheduleEntity.getEmpHRInterviewTime()
 					,scheduleEntity.getEmpHRRating(),scheduleEntity.getResult(),scheduleEntity.getShareResult());
 		}
 
 		public static ITS_TBL_Interview_Schedule_Entity convertScheduleToScheduleEntity(ITS_TBL_Interview_Schedule schedule) {
-			return new ITS_TBL_Interview_Schedule_Entity(schedule.getInterviewId(),schedule.getSubject(),schedule.getInterviewDate(),
+			return new ITS_TBL_Interview_Schedule_Entity(schedule.getSubject(),schedule.getInterviewDate(),
 					schedule.getInterviewTime(),schedule.getTechRating(),schedule.getEmpHRInterviewDate(),schedule.getEmpHRInterviewTime()
 					,schedule.getEmpHRRating(),schedule.getResult(),schedule.getShareResult());
 

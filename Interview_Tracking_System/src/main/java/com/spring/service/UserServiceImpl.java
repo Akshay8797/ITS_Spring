@@ -21,7 +21,7 @@ public class UserServiceImpl implements UserService {
 		List<ITS_TBL_User_Credentials_Entity> userList=userRepository.findByuserid(userid);
 		if(userList==null || userList.size()==0 || userList.get(0).getPassword().equals(password)!=true)
 		{
-			return "failed" +userList.get(0).getUserid();
+			return "failed" ;
 			
 		}
 		else {

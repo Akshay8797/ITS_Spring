@@ -22,10 +22,16 @@ public class ITS_TBL_User_Profile_Entity implements Serializable {
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name="CandidateId")
 	private ITS_TBL_Candidate_Entity candidate;
-
+	
 	@Column(name="Firstname")
 	private String firstName;
 	
+	public ITS_TBL_Candidate_Entity getCandidate() {
+		return candidate;
+	}
+	public void setCandidate(ITS_TBL_Candidate_Entity candidate) {
+		this.candidate = candidate;
+	}
 	@Column(name="Lastname")
 	private String lastName;
 	
@@ -55,6 +61,8 @@ public class ITS_TBL_User_Profile_Entity implements Serializable {
 	
 	@Column(name="EmailId")
 	private String emailId;
+	
+	public ITS_TBL_User_Profile_Entity() {}
 	
 	public ITS_TBL_User_Profile_Entity(String firstName, String lastName, LocalDate dateOfBirth,
 			String gender, String street, String location, String city, String state, String pincode, String mobileNo,
