@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.spring.entity.ITS_TBL_Interview_Schedule_Entity;
-
+import com.spring.entity.ITS_TBL_Techpanel_Entity;
 import com.spring.json.ITS_TBL_Interview_Schedule;
 import com.spring.rest.repository.InterviewScheduleRepository;
 import com.spring.utils.InterviewScheduleUtils;
@@ -17,6 +17,7 @@ public class TechServiceImpl implements TechService {
 
 	@Autowired
 	private InterviewScheduleRepository interviewCandidateRepo;
+	private ITS_TBL_Techpanel_Entity its_tbl_techpanel_entity;
 	
 	
 
@@ -24,10 +25,11 @@ public class TechServiceImpl implements TechService {
 	public List<ITS_TBL_Interview_Schedule> getAllInterviewCandidates() {
 		List<ITS_TBL_Interview_Schedule_Entity> interviewCandidateEntityList = interviewCandidateRepo.findAll();
 		return InterviewScheduleUtils.convertScheduleEntityListToScheduleList(interviewCandidateEntityList);
+		//List<ITS_TBL_Interview_Schedule_Entity> interviewCandidateEntityList =its_tbl_techpanel_entity.getInterviewScheduleList();
+		//return InterviewScheduleUtils.convertScheduleEntityListToScheduleList(interviewCandidateEntityList);
+
 		
 	}
-
-
 
 	@Override
 	public ITS_TBL_Interview_Schedule giveTechRating(ITS_TBL_Interview_Schedule its_tbl_interview_schedule, String id) {
