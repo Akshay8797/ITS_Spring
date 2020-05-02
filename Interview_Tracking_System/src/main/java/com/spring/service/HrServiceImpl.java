@@ -5,23 +5,22 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.spring.entity.ITS_TBL_Hrpanel_Entity;
-import com.spring.json.ITS_TBL_Hrpanel_Json;
-import com.spring.rest.repository.HrpanelRepository;
-import com.spring.utils.HrPanelUtils;
+import com.spring.entity.ITS_TBL_Interview_Schedule_Entity;
+import com.spring.json.ITS_TBL_Interview_Schedule;
+import com.spring.rest.repository.InterviewScheduleRepository;
+import com.spring.utils.InterviewScheduleUtils;
+
 @Service
-public class HrServiceImpl implements HrService{
+public class HrServiceImpl implements HrService {
+
+	@Autowired
+	private InterviewScheduleRepository hrcandidateRepo;
 	
-		@Autowired
-		private HrpanelRepository hrRepository;
+	@Override
+	public List<ITS_TBL_Interview_Schedule> getAllHrCandidate() {
+		List<ITS_TBL_Interview_Schedule_Entity> hrcandidateEntityList = hrcandidateRepo
+				.findByTechRatingGreaterThan((Float)0.5f);
+		return InterviewScheduleUtils.convertScheduleEntityListToScheduleList(hrcandidateEntityList);
+	}
 
-		public List<ITS_TBL_Hrpanel_Json> getAllHrPanel() {
-			List<ITS_TBL_Hrpanel_Entity> hrEntityList = hrRepository.findAll();
-			return HrPanelUtils.convertHrpanelEntityListToHrpanelList(hrEntityList);
-		}
 }
-/*List<UserEntity> userEntityList = userRepository.findAll();
-		return UserUtils.convertUserEntityListToUserList(userEntityList);*/
-		
-		
-
