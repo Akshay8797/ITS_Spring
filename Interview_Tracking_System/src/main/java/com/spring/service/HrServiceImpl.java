@@ -18,9 +18,10 @@ public class HrServiceImpl implements HrService {
 	
 	@Override
 	public List<ITS_TBL_Interview_Schedule> getAllHrCandidate() {
+		
 		List<ITS_TBL_Interview_Schedule_Entity> hrcandidateEntityList = hrCandidateRepo.findByTechRatingGreaterThan(2.5f);
-		return InterviewScheduleUtils.convertScheduleEntityListToScheduleList(hrcandidateEntityList);
-	}
+		return InterviewScheduleUtils.convertScheduleEntityListToScheduleList(hrcandidateEntityList);	
+		}
 	@Override
 	public ITS_TBL_Interview_Schedule giveHRRating(ITS_TBL_Interview_Schedule its_tbl_interview_schedule, String id) {
 		ITS_TBL_Interview_Schedule_Entity its_tbl_interview_schedule_entity = hrCandidateRepo.findById(Long.valueOf(id)).get();
@@ -35,7 +36,8 @@ public class HrServiceImpl implements HrService {
 	}
 	@Override
 	public List<ITS_TBL_Interview_Schedule> getResult() {
-		List<ITS_TBL_Interview_Schedule_Entity> hrResultList = hrCandidateRepo.findByShareResultIsNotNull();
-		return InterviewScheduleUtils.convertScheduleEntityListToScheduleList(hrResultList);
-		}
+		List<ITS_TBL_Interview_Schedule_Entity> hrCandidateEntityList = hrCandidateRepo.findByShareResultIsNotNull();
+		return InterviewScheduleUtils.convertScheduleEntityListToScheduleList(hrCandidateEntityList);
+		
+	}
 }

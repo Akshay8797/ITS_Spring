@@ -30,7 +30,7 @@ public class ITS_TBL_Interview_Schedule_Entity {
 	private LocalTime interviewTime;
 	
 	@Column(name="TechRating")
-	private Float techRating;
+	private Integer techRating;
 	
 	@Column(name="empHRInterviewDate")
 	private LocalDate empHRInterviewDate;
@@ -39,19 +39,19 @@ public class ITS_TBL_Interview_Schedule_Entity {
 	private LocalDate empHRInterviewTime;
 	
 	@Column(name="empHRRating")
-	private Float empHRRating;
+	private Integer empHRRating;
 	
 	@Column(name="Result")
 	private String result;
 	
 	@Column(name="ShareResult")
-	private int shareResult;
+	private Integer shareResult;
 	
 	
 
 	public ITS_TBL_Interview_Schedule_Entity(long interviewId, String subject, LocalDate interviewDate,
-		LocalTime interviewTime, Float techRating, LocalDate empHRInterviewDate, LocalDate empHRInterviewTime,
-		Float empHRRating, String result, int shareResult) {
+		LocalTime interviewTime, Integer techRating, LocalDate empHRInterviewDate, LocalDate empHRInterviewTime,
+		Integer empHRRating, String result, Integer shareResult) {
 		super();
 		this.interviewId = interviewId;
 		this.subject = subject;
@@ -93,10 +93,10 @@ public class ITS_TBL_Interview_Schedule_Entity {
 	public void setInterviewTime(LocalTime interviewTime) {
 		this.interviewTime = interviewTime;
 	}
-	public Float getTechRating() {
+	public Integer getTechRating() {
 		return techRating;
 	}
-	public void setTechRating(Float techRating) {
+	public void setTechRating(Integer techRating) {
 		this.techRating = techRating;
 	}
 	public LocalDate getEmpHRInterviewDate() {
@@ -111,10 +111,10 @@ public class ITS_TBL_Interview_Schedule_Entity {
 	public void setEmpHRInterviewTime(LocalDate empHRInterviewTime) {
 		this.empHRInterviewTime = empHRInterviewTime;
 	}
-	public Float getEmpHRRating() {
+	public Integer getEmpHRRating() {
 		return empHRRating;
 	}
-	public void setEmpHRRating(Float empHRRating) {
+	public void setEmpHRRating(Integer empHRRating) {
 		this.empHRRating = empHRRating;
 	}
 	public String getResult() {
@@ -123,10 +123,10 @@ public class ITS_TBL_Interview_Schedule_Entity {
 	public void setResult(String result) {
 		this.result = result;
 	}
-	public int getShareResult() {
+	public Integer getShareResult() {
 		return shareResult;
 	}
-	public void setShareResult(int shareResult) {
+	public void setShareResult(Integer shareResult) {
 		this.shareResult = shareResult;
 	}	
 }
