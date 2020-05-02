@@ -44,5 +44,14 @@ public class TechServiceImpl implements TechService {
 		return null;
 	}
 
+	@Override
+	public List<ITS_TBL_Interview_Schedule> getFinalResultsForTech() {
+		List<ITS_TBL_Interview_Schedule_Entity> interviewCandidateEntityList = interviewCandidateRepo.findByShareResultIsNotNull();
+		return InterviewScheduleUtils.convertScheduleEntityListToScheduleList(interviewCandidateEntityList);
+		
+	}
+	
+	
+
 
 }

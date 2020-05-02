@@ -35,5 +35,9 @@ public class TechController {
 		return techService.giveTechRating(its_tbl_interview_schedule, id);
 	}
 	
+	@GetMapping("/tech/result")
+	public List<ITS_TBL_Interview_Schedule> getFinalResultsForTech() {
+		return techService.getFinalResultsForTech();	
+	}
 	
 }
