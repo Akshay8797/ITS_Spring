@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +19,7 @@ import com.spring.json.ITS_TBL_USER_CREDENTIALS;
 import com.spring.service.HrService;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/its")
 @CrossOrigin(origins="*")
 public class Hr_Controller {
 	@Autowired
@@ -33,4 +34,9 @@ public class Hr_Controller {
 	public @ResponseBody ITS_TBL_Interview_Schedule giveHRRating(@RequestBody ITS_TBL_Interview_Schedule its_tbl_interview_schedule, @PathVariable(value="interviewId") String id) {
 		return hrService.giveHRRating(its_tbl_interview_schedule, id);
 		}
+	
+	@GetMapping("/result")
+	public List<ITS_TBL_Interview_Schedule> getResult() {
+		return hrService.getResult();	
+	}
 }
