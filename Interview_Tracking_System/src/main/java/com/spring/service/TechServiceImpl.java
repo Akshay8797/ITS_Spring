@@ -9,6 +9,7 @@ import com.spring.entity.ITS_TBL_Interview_Schedule_Entity;
 import com.spring.entity.ITS_TBL_Techpanel_Entity;
 import com.spring.json.ITS_TBL_Interview_Schedule;
 import com.spring.rest.repository.InterviewScheduleRepository;
+//import com.spring.rest.repository.TechRepository;
 import com.spring.utils.InterviewScheduleUtils;
 
 
@@ -17,13 +18,14 @@ public class TechServiceImpl implements TechService {
 
 	@Autowired
 	private InterviewScheduleRepository interviewCandidateRepo;
+	//private TechRepository techRepository;
 	private ITS_TBL_Techpanel_Entity its_tbl_techpanel_entity;
 	
 	
-
+	
 	@Override
 	public List<ITS_TBL_Interview_Schedule> getAllInterviewCandidates() {
-		List<ITS_TBL_Interview_Schedule_Entity> interviewCandidateEntityList = interviewCandidateRepo.findAll();
+		List<ITS_TBL_Interview_Schedule_Entity> interviewCandidateEntityList = interviewCandidateRepo.findByTechRatingIsNull();
 		return InterviewScheduleUtils.convertScheduleEntityListToScheduleList(interviewCandidateEntityList);
 		//List<ITS_TBL_Interview_Schedule_Entity> interviewCandidateEntityList =its_tbl_techpanel_entity.getInterviewScheduleList();
 		//return InterviewScheduleUtils.convertScheduleEntityListToScheduleList(interviewCandidateEntityList);
