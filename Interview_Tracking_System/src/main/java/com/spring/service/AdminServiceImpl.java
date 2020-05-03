@@ -56,7 +56,7 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public Object getInterviewByInterviewId(long interviewId,String authToken) {
 		List<ITS_TBL_User_Credentials_Entity> userList=userRepository.findBysessionId(authToken);
-		if(userList.get(0).getUserType().equalsIgnoreCase("Admin"))
+		if(userList!=null && userList.size()!=0)
 		{
 			return InterviewScheduleUtils.convertScheduleEntityToSchedule(schdeduleRepository.findByInterviewId(interviewId));
 		}
@@ -67,7 +67,7 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public Object shareDetails(String candidate_id,String authToken) {
 		List<ITS_TBL_User_Credentials_Entity> userList=userRepository.findBysessionId(authToken);
-		if(userList.get(0).getUserType().equalsIgnoreCase("Admin"))
+		if(userList!=null && userList.size()!=0)
 		{
 		ITS_TBL_Candidate_Entity  candidateEntity= candidateRepository.findByCandidateId(candidate_id).get(0);
 		candidateEntity.setShareDetails(3);
@@ -82,7 +82,7 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public Object sendToTech(String candidateId,String date,String time,String interviewerId,String subject,String authToken){
 		List<ITS_TBL_User_Credentials_Entity> userList=userRepository.findBysessionId(authToken);
-		if(userList!=null && userList.get(0).getUserType().equalsIgnoreCase("Admin"))
+		if(userList!=null && userList.size()!=0)
 		{
 		ITS_TBL_Interview_Schedule_Entity newInterview= new ITS_TBL_Interview_Schedule_Entity();
 		LocalDate localDate=LocalDate.parse(date);
@@ -103,7 +103,7 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public Object sendToHr(long interviewId,String date,String time,String empHRId,String authToken){
 		List<ITS_TBL_User_Credentials_Entity> userList=userRepository.findBysessionId(authToken);
-		if(userList.get(0).getUserType().equalsIgnoreCase("Admin"))
+		if(userList!=null && userList.size()!=0)
 		{
 		ITS_TBL_Interview_Schedule_Entity newInterview= schdeduleRepository.findByInterviewId(interviewId);
 		int checkTechclear=newInterview.getTechRating();
@@ -131,7 +131,7 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public Object getFreeTechInterviewerList(String date,String time,String authToken){
 		List<ITS_TBL_User_Credentials_Entity> userList=userRepository.findBysessionId(authToken);
-		if(userList!=null)
+		if(userList!=null && userList.size()!=0)
 		{
 		LocalDate localDate=LocalDate.parse(date);
 		LocalTime localTime=LocalTime.parse(time);
@@ -173,7 +173,7 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public Object getFreeHrInterviewerList(String date,String time,String authToken){
 		List<ITS_TBL_User_Credentials_Entity> userList=userRepository.findBysessionId(authToken);
-		if(userList!=null)
+		if(userList!=null && userList.size()!=0)
 		{
 		LocalDate localDate=LocalDate.parse(date);
 		LocalTime localTime=LocalTime.parse(time);
@@ -217,7 +217,7 @@ public class AdminServiceImpl implements AdminService {
 	public Object getHRRating(ITS_TBL_Interview_Schedule interview,String authToken)
 	{
 		List<ITS_TBL_User_Credentials_Entity> userList=userRepository.findBysessionId(authToken);
-		if(userList!=null)
+		if(userList!=null && userList.size()!=0)
 		{
 		ITS_TBL_Interview_Schedule_Entity scheduleEntity=interviewScheduleRepository.findByInterviewId(interview.getInterviewId());
 			return scheduleEntity.getEmpHRRating();
@@ -231,7 +231,7 @@ public class AdminServiceImpl implements AdminService {
 	public Object getTechRating(ITS_TBL_Interview_Schedule interview,String authToken)
 	{
 		List<ITS_TBL_User_Credentials_Entity> userList=userRepository.findBysessionId(authToken);
-		if(userList!=null)
+		if(userList!=null && userList.size()!=0)
 		{
 		ITS_TBL_Interview_Schedule_Entity scheduleEntity=interviewScheduleRepository.findByInterviewId(interview.getInterviewId());
 			return scheduleEntity.getTechRating();
@@ -244,7 +244,7 @@ public class AdminServiceImpl implements AdminService {
 	public Object setInterviewResult(ITS_TBL_Interview_Schedule interview,String authToken)
 	{
 		List<ITS_TBL_User_Credentials_Entity> userList=userRepository.findBysessionId(authToken);
-		if(userList!=null)
+		if(userList!=null && userList.size()!=0)
 		{
 		ITS_TBL_Interview_Schedule_Entity scheduleEntity=interviewScheduleRepository.findByInterviewId(interview.getInterviewId());
 		 scheduleEntity.setResult(interview.getResult());
@@ -256,7 +256,7 @@ public class AdminServiceImpl implements AdminService {
 	
 	public Object shareInterviewResult(ITS_TBL_Interview_Schedule interview,String authToken) {
 		List<ITS_TBL_User_Credentials_Entity> userList=userRepository.findBysessionId(authToken);
-		if(userList!=null)
+		if(userList!=null && userList.size()!=0)
 		{
 		ITS_TBL_Interview_Schedule_Entity scheduleEntity=interviewScheduleRepository.findByInterviewId(interview.getInterviewId());
 		 scheduleEntity.setShareResult(interview.getShareResult());
