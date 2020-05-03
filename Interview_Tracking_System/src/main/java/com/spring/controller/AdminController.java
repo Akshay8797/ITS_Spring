@@ -24,7 +24,7 @@ public class AdminController {
 	@Autowired
 	private AdminService adminService;
 	
-	@GetMapping(value="/interviewer/{panel}{date}{time}",produces=MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value="/interviewer/{panel}",produces=MediaType.APPLICATION_JSON_VALUE)
 	public Object getFreeInterviewerList(@RequestParam(required=true) String date,
 			@RequestParam(required=true) String time,@RequestHeader(name="auth-token") String authToken,@PathVariable(value="panel")String panel){
 		if(panel.equalsIgnoreCase("tech"))
@@ -36,12 +36,12 @@ public class AdminController {
 	}
 	
 	@PutMapping(value="/toTech",produces=MediaType.APPLICATION_JSON_VALUE)
-	public Object sendToTech(@RequestHeader (name="candidateId") String candidateId,@RequestHeader (name="date") String date,@RequestHeader (name="time") String time,@RequestHeader (name="interviewerId") String interviewerId,@RequestHeader (name="subject")String subject,@RequestHeader(name="auth-token") String authToken) {
+	public Object sendToTech(@RequestParam(required=true) String candidateId,@RequestParam(required=true) String date,@RequestParam(required=true) String time,@RequestParam(required=true) String interviewerId,@RequestParam(required=true) String subject,@RequestHeader(name="auth-token") String authToken) {
 		return adminService.sendToTech(candidateId, date, time, interviewerId, subject,authToken);
 	}
 	
 	@PutMapping(value="/toHr",produces=MediaType.APPLICATION_JSON_VALUE)
-	public Object sendToHr(@RequestHeader (name="interviewId") long interviewId,@RequestHeader (name="date") String date,@RequestHeader (name="time") String time,@RequestHeader (name="empHrId") String empHrId,@RequestHeader(name="auth-token") String authToken) {
+	public Object sendToHr(@RequestParam(required=true) long interviewId,@RequestParam(required=true) String date,@RequestParam(required=true) String time,@RequestParam(required=true) String empHrId,@RequestHeader(name="auth-token") String authToken) {
 		return adminService.sendToHr(interviewId, date, time, empHrId,authToken);
 	}
 	
