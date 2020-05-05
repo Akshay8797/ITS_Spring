@@ -18,21 +18,22 @@ public class HrServiceImpl implements HrService {
 	
 	@Override
 	public List<ITS_TBL_Interview_Schedule> getAllHrCandidate() {
-		
 		List<ITS_TBL_Interview_Schedule_Entity> hrcandidateEntityList = hrCandidateRepo.findByTechRatingGreaterThan(2.5f);
 		return InterviewScheduleUtils.convertScheduleEntityListToScheduleList(hrcandidateEntityList);	
 		}
 	@Override
-	public ITS_TBL_Interview_Schedule giveHRRating(ITS_TBL_Interview_Schedule its_tbl_interview_schedule, String id) {
+	public String giveHRRating(ITS_TBL_Interview_Schedule its_tbl_interview_schedule, String id) {
 		ITS_TBL_Interview_Schedule_Entity its_tbl_interview_schedule_entity = hrCandidateRepo.findById(Long.valueOf(id)).get();
-		if(its_tbl_interview_schedule_entity != null  && its_tbl_interview_schedule_entity.getTechRating()> 2.5f ) {
+		if(its_tbl_interview_schedule_entity.getEmpHRRating() == null  && its_tbl_interview_schedule_entity.getTechRating()>= 2.5f ) {
 			its_tbl_interview_schedule_entity.setEmpHRRating(its_tbl_interview_schedule.getEmpHRRating());
 			its_tbl_interview_schedule_entity = hrCandidateRepo.save(its_tbl_interview_schedule_entity);
-			return InterviewScheduleUtils.convertScheduleEntityToSchedule(its_tbl_interview_schedule_entity);
+			return "{\"Result\" :\" Success\"}";
 		}
-		else {
-			return null;
+		else if(its_tbl_interview_schedule_entity.getEmpHRRating() == null && its_tbl_interview_schedule_entity.getTechRating()<2.5f){
+			return "{\"Result\" :\" Candididate doesn't qualify the Tech Round\"}";
 		}
+		else 
+			return "{\"Result\" :\" Candididate is already assigned with HR Rating\"}";
 	}
 	@Override
 	public List<ITS_TBL_Interview_Schedule> getResult() {

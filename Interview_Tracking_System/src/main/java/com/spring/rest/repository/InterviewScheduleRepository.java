@@ -10,11 +10,13 @@ import com.spring.entity.ITS_TBL_Interview_Schedule_Entity;
 @Component
 public interface InterviewScheduleRepository extends JpaRepository<ITS_TBL_Interview_Schedule_Entity, Long>{
 
-	List<ITS_TBL_Interview_Schedule_Entity> findByTechRatingGreaterThan(Float tr);
+	List<ITS_TBL_Interview_Schedule_Entity> findByTechRatingGreaterThan(float f);
 
 	ITS_TBL_Interview_Schedule_Entity findByInterviewId(String interviewId);
 
 	List<ITS_TBL_Interview_Schedule_Entity> findByShareResultIsNotNull();
+
+	List<ITS_TBL_Interview_Schedule_Entity> findByEmpHRRatingIsNull();
 
 
 	}

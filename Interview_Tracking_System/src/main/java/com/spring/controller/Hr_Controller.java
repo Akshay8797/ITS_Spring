@@ -30,8 +30,8 @@ public class Hr_Controller {
 		return hrService.getAllHrCandidate();	
 	}
 	
-	@PostMapping(value = "/hr/{interviewId}", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody ITS_TBL_Interview_Schedule giveHRRating(@RequestBody ITS_TBL_Interview_Schedule its_tbl_interview_schedule, @PathVariable(value="interviewId") String id) {
+	@PutMapping(value = "/hr/{interviewId}", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody String giveHRRating(@RequestBody ITS_TBL_Interview_Schedule its_tbl_interview_schedule, @PathVariable(value="interviewId") String id) {
 		return hrService.giveHRRating(its_tbl_interview_schedule, id);
 		}
 	

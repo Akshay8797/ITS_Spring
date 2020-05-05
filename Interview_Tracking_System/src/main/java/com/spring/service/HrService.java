@@ -9,7 +9,7 @@ import com.spring.utils.InterviewScheduleUtils;
 public interface HrService {
 	public List<ITS_TBL_Interview_Schedule> getAllHrCandidate(); 
 	
-	public ITS_TBL_Interview_Schedule giveHRRating (ITS_TBL_Interview_Schedule its_tbl_interview_schedule, String id);
+	public String giveHRRating (ITS_TBL_Interview_Schedule its_tbl_interview_schedule, String id);
 
 	public List<ITS_TBL_Interview_Schedule> getResult();
 
