@@ -8,10 +8,10 @@ public class ITS_TBL_Interview_Schedule {
 	private String subject;
 	private LocalDate interviewDate;
 	private LocalTime interviewTime;
-	private Integer techRating;
+	private Float techRating;
 	private LocalDate empHRInterviewDate;
 	private LocalDate empHRInterviewTime;
-	private Integer empHRRating;
+	private Float empHRRating;
 	private String result;
 	private Integer shareResult;
 	
@@ -19,8 +19,8 @@ public class ITS_TBL_Interview_Schedule {
 	public ITS_TBL_Interview_Schedule() {}
 	
 	public ITS_TBL_Interview_Schedule(long interviewId, String subject, LocalDate interviewDate,
-		LocalTime interviewTime, Integer techRating, LocalDate empHRInterviewDate, LocalDate empHRInterviewTime,
-		Integer empHRRating, String result, Integer shareResult) {
+		LocalTime interviewTime, Float techRating, LocalDate empHRInterviewDate, LocalDate empHRInterviewTime,
+		Float empHRRating, String result, Integer shareResult) {
 		super();
 		this.interviewId = interviewId;
 		this.subject = subject;
@@ -34,7 +34,7 @@ public class ITS_TBL_Interview_Schedule {
 		this.shareResult = shareResult;
 	}
 	
-	public ITS_TBL_Interview_Schedule(String subject, Integer techRating) {
+	public ITS_TBL_Interview_Schedule(String subject, Float techRating) {
 		super();
 		this.subject = subject;
 		this.techRating = techRating;
@@ -64,10 +64,10 @@ public class ITS_TBL_Interview_Schedule {
 	public void setInterviewTime(LocalTime interviewTime) {
 		this.interviewTime = interviewTime;
 	}
-	public Integer getTechRating() {
+	public Float getTechRating() {
 		return techRating;
 	}
-	public void setTechRating(Integer techRating) {
+	public void setTechRating(Float techRating) {
 		this.techRating = techRating;
 	}
 	public LocalDate getEmpHRInterviewDate() {
@@ -82,10 +82,10 @@ public class ITS_TBL_Interview_Schedule {
 	public void setEmpHRInterviewTime(LocalDate empHRInterviewTime) {
 		this.empHRInterviewTime = empHRInterviewTime;
 	}
-	public Integer getEmpHRRating() {
+	public Float getEmpHRRating() {
 		return empHRRating;
 	}
-	public void setEmpHRRating(Integer empHRRating) {
+	public void setEmpHRRating(Float empHRRating) {
 		this.empHRRating = empHRRating;
 	}
 	public String getResult() {

@@ -31,7 +31,7 @@ public class TechController {
 	}
 	
 	@PostMapping(value="/tech/{interviewId}", produces=MediaType.APPLICATION_JSON_VALUE, consumes=MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody ITS_TBL_Interview_Schedule giveTechRating(@RequestBody ITS_TBL_Interview_Schedule its_tbl_interview_schedule, @PathVariable(value="interviewId") String id) {
+	public @ResponseBody String giveTechRating(@RequestBody ITS_TBL_Interview_Schedule its_tbl_interview_schedule, @PathVariable(value="interviewId") String id) {
 		return techService.giveTechRating(its_tbl_interview_schedule, id);
 	}
 	
