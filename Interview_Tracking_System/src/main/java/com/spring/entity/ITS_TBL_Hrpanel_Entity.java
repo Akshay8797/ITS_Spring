@@ -14,52 +14,65 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "ITS_TBL_HR_Panel")
-public class ITS_TBL_Hrpanel_Entity {
+@Table(name = "ITS_TBL_Tech_Panel")
+public class ITS_TBL_Techpanel_Entity {
 	@Id
 	@GeneratedValue
-	@Column(name = "empHrId")
-	private long empHrId;
+	@Column(name = "techId")
+	private long techId;
 
-	public List<ITS_TBL_Interview_Schedule_Entity> getInterviewScheduleList() {
+	@Column(name = "techName")
+	private String techName;
+
+	@Column(name = "Subjects")
+	private String subjects;
+
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "TechEntity")
+	private Set<ITS_TBL_Interview_Schedule_Entity> interviewScheduleList;
+
+	public Set<ITS_TBL_Interview_Schedule_Entity> getInterviewScheduleList() {
 		return interviewScheduleList;
 	}
 
-	public void setInterviewScheduleList(List<ITS_TBL_Interview_Schedule_Entity> interviewScheduleList) {
+	public void setInterviewScheduleList(Set<ITS_TBL_Interview_Schedule_Entity> interviewScheduleList) {
 		this.interviewScheduleList = interviewScheduleList;
 	}
 
-	@Column(name = "empHrName")
-	private String empHrName;
-
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "hrEntity")
-	private List<ITS_TBL_Interview_Schedule_Entity> interviewScheduleList;
-
-	public ITS_TBL_Hrpanel_Entity() {
+	public ITS_TBL_Techpanel_Entity(long techId, String techName, String subjects) {
+		this.techId = techId;
+		this.techName = techName;
+		this.subjects = subjects;
 	}
 
-	public ITS_TBL_Hrpanel_Entity(long empHrId, String empHrName) {
-		this.empHrId = empHrId;
-		this.empHrName = empHrName;
+	public ITS_TBL_Techpanel_Entity() {
 	}
 
-	public ITS_TBL_Hrpanel_Entity(String empHrName) {
-		this.empHrName = empHrName;
+	public ITS_TBL_Techpanel_Entity(String techName, String subjects) {
+		this.techName = techName;
+		this.subjects = subjects;
 	}
 
-	public long getEmpHrId() {
-		return empHrId;
+	public long getTechId() {
+		return techId;
 	}
 
-	public void setEmpHrId(long empHrId) {
-		this.empHrId = empHrId;
+	public void setTechId(long techId) {
+		this.techId = techId;
 	}
 
-	public String getEmpHrName() {
-		return empHrName;
+	public String getTechName() {
+		return techName;
 	}
 
-	public void setEmpHrName(String empHrName) {
-		this.empHrName = empHrName;
+	public void setTechName(String techName) {
+		this.techName = techName;
+	}
+
+	public String getSubjects() {
+		return subjects;
+	}
+
+	public void setSubjects(String subjects) {
+		this.subjects = subjects;
 	}
 }
