@@ -48,7 +48,7 @@ public class UserServiceImpl implements UserService {
 	}
 	}
 
-	/*public String logout(String authToken) {
+	public String logout(String authToken) {
 		if(userRepository.findBysessionid(authToken)==null )
 		{
 			return "failed";
@@ -63,8 +63,8 @@ public class UserServiceImpl implements UserService {
 			userEntity.setLoginstatus(loginstatus);
 			userRepository.save(userEntity);
 			return "Logged out successfully";
-	}}*/
-	public String logout(String sessionId) {
+	}}
+	/*public String logout(String sessionId) {
 		//LoginResponse response = new LoginResponse();
 		if (sessionId == null) {
 			//response.setMessage("INVALID SESSIONID");
@@ -81,7 +81,7 @@ public class UserServiceImpl implements UserService {
 			return "{\"message\": \"LOGGED OUT SUCCESFULLY\"}";
 		}
 		
-	}
+	}*/
 	
 
 	public String resetpassword(ITS_TBL_USER_CREDENTIALS user, String newpassword) {
