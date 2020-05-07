@@ -5,8 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.spring.entity.ITS_TBL_Hrpanel_Entity;
 import com.spring.entity.ITS_TBL_Interview_Schedule_Entity;
 import com.spring.json.ITS_TBL_Interview_Schedule;
+import com.spring.rest.repository.HrpanelRepository;
 import com.spring.rest.repository.InterviewScheduleRepository;
 import com.spring.utils.InterviewScheduleUtils;
 
@@ -14,6 +16,8 @@ import com.spring.utils.InterviewScheduleUtils;
 public class HrServiceImpl implements HrService {
 	@Autowired
 	private InterviewScheduleRepository hrcandidateRepo;
+	@Autowired
+	private HrpanelRepository hrRepo;
 /*
 	@Override
 	public List<ITS_TBL_Interview_Schedule> getAllHrCandidate() {
@@ -48,6 +52,13 @@ public class HrServiceImpl implements HrService {
 	public List<ITS_TBL_Interview_Schedule> getResult() {
 		List<ITS_TBL_Interview_Schedule_Entity> hrCandidateEntityList = hrcandidateRepo.findByShareResultIsNotNull();
 		return InterviewScheduleUtils.convertScheduleEntityListToScheduleList(hrCandidateEntityList);
+
+	}
+
+	@Override
+	public List<ITS_TBL_Hrpanel_Entity> getAllHrPanel() {
+		List<ITS_TBL_Hrpanel_Entity> hrpanelList = hrRepo.findAll();
+		return hrpanelList;
 
 	}
 }

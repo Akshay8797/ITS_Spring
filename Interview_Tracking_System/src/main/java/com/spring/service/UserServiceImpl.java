@@ -15,7 +15,9 @@ public class UserServiceImpl implements UserService {
 	private UserRepository userRepository;
 	
 	@Override
-	public String login(String userId, String password, String userType) {
+	public String login(ITS_TBL_User_Credentials user) {
+		String userId=user.getUserid();
+		String password=user.getPassword();
 		List<ITS_TBL_User_Credentials_Entity> userList=userRepository.findByuserid(userId);
 		if(userList==null || userList.size()==0 || userList.get(0).getPassword().equals(password)!=true)
 		{
@@ -28,7 +30,6 @@ public class UserServiceImpl implements UserService {
 			String loginstatus="online";
 			userEntity.setSessionId(sessionId);
 			userEntity.setLoginstatus(loginstatus);
-			userEntity.setUserType(userType);
 			userRepository.save(userEntity);
 			return userEntity.getSessionId();
 								

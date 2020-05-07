@@ -382,7 +382,7 @@ List<ITS_TBL_User_Credentials_Entity> userList=userRepository.findBysessionId(au
 	public Object sendToHr(long interviewId,String date,String time,long empHRId,String authToken){
 		List<ITS_TBL_User_Credentials_Entity> userList=userRepository.findBysessionId(authToken);
 		ITS_TBL_Interview_Schedule_Entity newInterview= schdeduleRepository.findByInterviewId(interviewId);
-		int checkTechclear=newInterview.getTechRating();
+		Float checkTechclear=newInterview.getTechRating();
 		if(userList!=null && userList.size()!=0 && newInterview!=null)
 		{
 		if(checkTechclear>3)
