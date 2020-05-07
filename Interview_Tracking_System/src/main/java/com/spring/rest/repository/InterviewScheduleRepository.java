@@ -20,5 +20,10 @@ public interface InterviewScheduleRepository extends JpaRepository<ITS_TBL_Inter
 	@Query(value="SELECT * FROM ITS_TBL_Interview_Schedule i WHERE i.interview_time is NULL AND i.tech_rating is NULL" ,nativeQuery = true)
 	List<ITS_TBL_Interview_Schedule_Entity> findByInterviewTimeIsNullAndfindByTechRatingIsNull();
 	
+	@Query(value="SELECT * FROM ITS_TBL_Interview_Schedule i WHERE i.emphrinterview_time is NULL AND i.tech_rating >3.0" ,nativeQuery = true)
+	List<ITS_TBL_Interview_Schedule_Entity> findByHRInterviewTimeIsNullAndfindByTechRatingIsGreaterThan3();
+	
+	//List<ITS_TBL_Interview_Schedule_Entity> findByTechRatingGreaterThan(float f);
+	
 	
 }
