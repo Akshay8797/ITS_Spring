@@ -8,8 +8,7 @@ import com.spring.entity.ITS_TBL_Interview_Schedule_Entity;
 import com.spring.entity.ITS_TBL_Techpanel_Entity;
 import com.spring.json.ITS_TBL_Interview_Schedule;
 import com.spring.rest.repository.InterviewScheduleRepository;
-import com.spring.rest.repository.TechRepository;
-//import com.spring.rest.repository.TechRepository;
+
 import com.spring.utils.InterviewScheduleUtils;
 
 @Service
