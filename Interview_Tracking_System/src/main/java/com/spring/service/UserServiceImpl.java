@@ -87,7 +87,7 @@ public class UserServiceImpl implements UserService {
 	public String resetpassword(ITS_TBL_USER_CREDENTIALS user, String newpassword) {
 
 		if (userRepository.findByuserid(user.getUserid()) == null) {
-			return "{\"Failed\"}";
+			return "{\"result\": \"Invalid\"}";
 		} else {
 			ITS_TBL_USER_CREDENTIALS newUser = UserUtils
 					.convertITS_TBL_USER_CREDENTIALS_ENTITYToITS_TBL_USER_CREDENTIALS(
@@ -97,15 +97,15 @@ public class UserServiceImpl implements UserService {
 					ITS_TBL_USER_CREDENTIALS_ENTITY userEntity = userRepository.findByuserid((newUser.getUserid()));
 					userEntity.setPassword(newpassword);
 					userRepository.save(userEntity);
-					return "{\"Password Updated\"}";
+					return "{\"result\": \"Password Updated\"}";
 				} else {
-					return "{\"Invalid Password\"}";
+					return "{\"result\": \"Invalid Password\"}";
 				}
 			} else
-				return "{\"Invalid User\"}";
-
+				return "{\"result\": \"Invalid User\"}";
 		}
 
 	}
 
 }
+
