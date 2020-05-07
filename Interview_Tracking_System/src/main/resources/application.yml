@@ -1,9 +1,9 @@
 spring:
     datasource:
-        driverClassName: com.mysql.jdbc.Driver
-        url: jdbc:mysql://localhost:3306/itsdb2
+        driverClassName: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/test
         username: root
-        password: ark_angel
+        password: 8797
 
     jpa:
         generate-ddl: true

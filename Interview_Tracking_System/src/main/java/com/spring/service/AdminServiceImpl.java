@@ -30,7 +30,6 @@ import com.spring.utils.CandidateUtils;
 import com.spring.utils.HrPanelUtils;
 import com.spring.utils.InterviewScheduleUtils;
 import com.spring.utils.TechPanelUtils;
-import com.spring.utils.UserProfileUtils;
 @Service
 public class AdminServiceImpl implements AdminService {
 	
@@ -385,7 +384,7 @@ List<ITS_TBL_User_Credentials_Entity> userList=userRepository.findBysessionId(au
 		Float checkTechclear=newInterview.getTechRating();
 		if(userList!=null && userList.size()!=0 && newInterview!=null)
 		{
-		if(checkTechclear>3)
+		if(checkTechclear>3f)
 		{
 		DateTimeFormatter newPattern = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		LocalDate localDate=LocalDate.parse(date,newPattern);
