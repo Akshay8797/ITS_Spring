@@ -17,5 +17,7 @@ public interface InterviewScheduleRepository extends JpaRepository<ITS_TBL_Inter
 	List<ITS_TBL_Interview_Schedule_Entity> findByShareResultIsNotNull();
 
 	List<ITS_TBL_Interview_Schedule_Entity> findByEmpHRRatingIsNull();
+	List<ITS_TBL_Interview_Schedule_Entity> findByShareResultIsNotNull();
+	List<ITS_TBL_Interview_Schedule_Entity> findByInterviewTimeIsNotNull();
 
 }
