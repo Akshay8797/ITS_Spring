@@ -28,7 +28,7 @@ public class ITS_TBL_Interview_Schedule_Entity {
 	private LocalTime interviewTime;
 	
 	@Column(name="TechRating",nullable=false)
-	private int techRating;
+	private Float techRating;
 	
 	@Column(name="empHRInterviewDate")
 	private LocalDate empHRInterviewDate;
@@ -37,7 +37,7 @@ public class ITS_TBL_Interview_Schedule_Entity {
 	private LocalTime empHRInterviewTime;
 	
 	@Column(name="empHRRating",nullable=false)
-	private int empHRRating;
+	private Float empHRRating;
 	
 	@Column(name="Result")
 	private String result;
@@ -86,8 +86,8 @@ public class ITS_TBL_Interview_Schedule_Entity {
 	public ITS_TBL_Interview_Schedule_Entity() {}
 
 	public ITS_TBL_Interview_Schedule_Entity( long interviewId,String subject, LocalDate interviewDate,
-		LocalTime interviewTime, Integer techRating, LocalDate empHRInterviewDate, LocalTime empHRInterviewTime,
-		Integer empHRRating, String result, Integer shareResult) {
+		LocalTime interviewTime, Float techRating, LocalDate empHRInterviewDate, LocalTime empHRInterviewTime,
+		Float empHRRating, String result, Integer shareResult) {
 		super();
 		this.interviewId=interviewId;
 		this.subject = subject;
@@ -125,10 +125,10 @@ public class ITS_TBL_Interview_Schedule_Entity {
 	public void setInterviewTime(LocalTime interviewTime) {
 		this.interviewTime = interviewTime;
 	}
-	public int getTechRating() {
+	public Float getTechRating() {
 		return techRating;
 	}
-	public void setTechRating(Integer techRating) {
+	public void setTechRating(Float techRating) {
 		this.techRating = techRating;
 	}
 	public LocalDate getEmpHRInterviewDate() {
@@ -143,10 +143,10 @@ public class ITS_TBL_Interview_Schedule_Entity {
 	public void setEmpHRInterviewTime(LocalTime localTime) {
 		this.empHRInterviewTime = localTime;
 	}
-	public Integer getEmpHRRating() {
+	public Float getEmpHRRating() {
 		return empHRRating;
 	}
-	public void setEmpHRRating(Integer empHRRating) {
+	public void setEmpHRRating(Float empHRRating) {
 		this.empHRRating = empHRRating;
 	}
 	public String getResult() {
