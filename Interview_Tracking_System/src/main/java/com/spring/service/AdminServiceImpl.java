@@ -34,6 +34,8 @@ import com.spring.utils.UserProfileUtils;
 @Service
 public class AdminServiceImpl implements AdminService {
 	
+	List<ITS_TBL_Candidate_Entity> allCandidatesNew = new ArrayList<ITS_TBL_Candidate_Entity>();
+	
 	@Autowired
 	private InterviewScheduleRepository schdeduleRepository;
 
@@ -114,7 +116,7 @@ public class AdminServiceImpl implements AdminService {
 	public Object addCandidateUserProfile(ITS_TBL_User_Profile_Json candidate,long candidateId,String authToken)
 	{
 List<ITS_TBL_User_Credentials_Entity> userList=userRepository.findBysessionId(authToken);
-		
+		System.out.println(authToken);
 		if(userList!=null && userList.size()!=0)
 		{
 		List<ITS_TBL_Candidate_Entity> candidate_Entity=candidateRepository.findByCandidateId(candidateId);
@@ -142,19 +144,20 @@ List<ITS_TBL_User_Credentials_Entity> userList=userRepository.findBysessionId(au
 		}
 		
 	}
-	
+	@Override
 	public Object search(ITS_TBL_Candidate candidateProfile,String authToken)
 	{
 	List<ITS_TBL_User_Credentials_Entity> userList=userRepository.findBysessionId(authToken);
 		
 		if(userList!=null && userList.size()!=0)
 		{
+			allCandidatesNew.clear();
 	 String qualification=candidateProfile.getQualification();
 	 String skills=candidateProfile.getPrimarySkills();
 	 int experience=candidateProfile.getExperience();
 	 List<ITS_TBL_Candidate_Entity> listcan=candidateRepository.findByQualificationAndPrimarySkillsAndExperience(qualification, skills,experience);
-	 
-	 return UserProfileUtils.convertUserEntityListToUserList(listcan);
+	 listcan.stream().forEach(p->allCandidatesNew.add(p));
+	 return CandidateUtils.convertCandidateEntityListToCandidateList(listcan);
 		}
 		else
 		{
@@ -267,9 +270,9 @@ List<ITS_TBL_User_Credentials_Entity> userList=userRepository.findBysessionId(au
 	/*------------------------GET ELIGIBLE CANDIDATES FOR TECHNICAL INTERVIEW-------------------------------------------------*/
 	
 	public Object getCandidateForTechnical() {
-		List<ITS_TBL_Candidate_Entity> allCandidates=candidateRepository.findAll();
+		//List<ITS_TBL_Candidate_Entity> allCandidates=candidateRepository.findAll();
 		List<ITS_TBL_Candidate_Entity> eligibleCandidates = new ArrayList<ITS_TBL_Candidate_Entity>();
-		allCandidates.stream().forEach(p -> {
+		allCandidatesNew.stream().forEach(p -> {
 			if(p.getInterviewScheduleList().size()==0) {
 				if(!eligibleCandidates.contains(p))  
 					eligibleCandidates.add(p);

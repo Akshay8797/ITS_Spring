@@ -46,7 +46,7 @@ public class ITS_TBL_Candidate_Entity {
 	@Column(name="ShareDetails")
 	private int shareDetails;
 	
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy="candidateEntity")
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy="candidateEntity")
 	private List<ITS_TBL_Interview_Schedule_Entity> interviewScheduleList;
 	
 	@OneToOne(mappedBy = "candidate",cascade = CascadeType.ALL)

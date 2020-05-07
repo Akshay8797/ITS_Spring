@@ -3,10 +3,8 @@ package com.spring.entity;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -29,35 +27,37 @@ public class ITS_TBL_Interview_Schedule_Entity {
 	@Column(name="InterviewTime")
 	private LocalTime interviewTime;
 	
-	@Column(name="TechRating")
-	private Float techRating;
+	@Column(name="TechRating",nullable=false)
+	private int techRating;
 	
 	@Column(name="empHRInterviewDate")
 	private LocalDate empHRInterviewDate;
 	
 	@Column(name="empHRInterviewTime")
-	private LocalDate empHRInterviewTime;
+	private LocalTime empHRInterviewTime;
 	
-	@Column(name="empHRRating")
-	private Float empHRRating;
+	@Column(name="empHRRating",nullable=false)
+	private int empHRRating;
 	
 	@Column(name="Result")
 	private String result;
 	
 	@Column(name="ShareResult")
-	private Integer shareResult;
+	private int shareResult;
 	
 	@ManyToOne()
-	@JoinColumn(name = "CandidateId")
+	@JoinColumn(name="CandidateId")
 	private ITS_TBL_Candidate_Entity candidateEntity;
-
+	
 	@ManyToOne()
-	@JoinColumn(name = "empHRId")
+	@JoinColumn(name="empHRId")
 	private ITS_TBL_Hrpanel_Entity hrEntity;
-
+	
 	@ManyToOne()
-	@JoinColumn(name = "TechId")
+	@JoinColumn(name="TechId")
 	private ITS_TBL_Techpanel_Entity TechEntity;
+	
+	
 
 	public ITS_TBL_Candidate_Entity getCandidateEntity() {
 		return candidateEntity;
@@ -82,14 +82,14 @@ public class ITS_TBL_Interview_Schedule_Entity {
 	public void setTechEntity(ITS_TBL_Techpanel_Entity techEntity) {
 		TechEntity = techEntity;
 	}
-
+	
 	public ITS_TBL_Interview_Schedule_Entity() {}
 
-	public ITS_TBL_Interview_Schedule_Entity(long interviewId, String subject, LocalDate interviewDate,
-		LocalTime interviewTime, Float techRating, LocalDate empHRInterviewDate, LocalDate empHRInterviewTime,
-		Float empHRRating, String result, Integer shareResult) {
+	public ITS_TBL_Interview_Schedule_Entity( long interviewId,String subject, LocalDate interviewDate,
+		LocalTime interviewTime, Integer techRating, LocalDate empHRInterviewDate, LocalTime empHRInterviewTime,
+		Integer empHRRating, String result, Integer shareResult) {
 		super();
-		this.interviewId = interviewId;
+		this.interviewId=interviewId;
 		this.subject = subject;
 		this.interviewDate = interviewDate;
 		this.interviewTime = interviewTime;
@@ -125,10 +125,10 @@ public class ITS_TBL_Interview_Schedule_Entity {
 	public void setInterviewTime(LocalTime interviewTime) {
 		this.interviewTime = interviewTime;
 	}
-	public Float getTechRating() {
+	public int getTechRating() {
 		return techRating;
 	}
-	public void setTechRating(Float techRating) {
+	public void setTechRating(Integer techRating) {
 		this.techRating = techRating;
 	}
 	public LocalDate getEmpHRInterviewDate() {
@@ -137,16 +137,16 @@ public class ITS_TBL_Interview_Schedule_Entity {
 	public void setEmpHRInterviewDate(LocalDate empHRInterviewDate) {
 		this.empHRInterviewDate = empHRInterviewDate;
 	}
-	public LocalDate getEmpHRInterviewTime() {
+	public LocalTime getEmpHRInterviewTime() {
 		return empHRInterviewTime;
 	}
-	public void setEmpHRInterviewTime(LocalDate empHRInterviewTime) {
-		this.empHRInterviewTime = empHRInterviewTime;
+	public void setEmpHRInterviewTime(LocalTime localTime) {
+		this.empHRInterviewTime = localTime;
 	}
-	public Float getEmpHRRating() {
+	public Integer getEmpHRRating() {
 		return empHRRating;
 	}
-	public void setEmpHRRating(Float empHRRating) {
+	public void setEmpHRRating(Integer empHRRating) {
 		this.empHRRating = empHRRating;
 	}
 	public String getResult() {
@@ -155,13 +155,10 @@ public class ITS_TBL_Interview_Schedule_Entity {
 	public void setResult(String result) {
 		this.result = result;
 	}
-	public Integer getShareResult() {
+	public int getShareResult() {
 		return shareResult;
 	}
 	public void setShareResult(Integer shareResult) {
 		this.shareResult = shareResult;
 	}	
 }
-
-	
-

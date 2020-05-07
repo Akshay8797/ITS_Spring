@@ -8,21 +8,21 @@ public class ITS_TBL_Interview_Schedule {
 	private String subject;
 	private LocalDate interviewDate;
 	private LocalTime interviewTime;
-	private Float techRating;
+	private int techRating;
 	private LocalDate empHRInterviewDate;
-	private LocalDate empHRInterviewTime;
-	private Float empHRRating;
+	private LocalTime empHRInterviewTime;
+	private int empHRRating;
 	private String result;
-	private Integer shareResult;
+	private int shareResult;
 	
 	
-	public ITS_TBL_Interview_Schedule() {}
+	
 	
 	public ITS_TBL_Interview_Schedule(long interviewId, String subject, LocalDate interviewDate,
-		LocalTime interviewTime, Float techRating, LocalDate empHRInterviewDate, LocalDate empHRInterviewTime,
-		Float empHRRating, String result, Integer shareResult) {
+		LocalTime interviewTime, int techRating, LocalDate empHRInterviewDate, LocalTime empHRInterviewTime,
+		int empHRRating, String result, int shareResult) {
 		super();
-		this.interviewId = interviewId;
+		this.interviewId=interviewId;
 		this.subject = subject;
 		this.interviewDate = interviewDate;
 		this.interviewTime = interviewTime;
@@ -33,13 +33,6 @@ public class ITS_TBL_Interview_Schedule {
 		this.result = result;
 		this.shareResult = shareResult;
 	}
-	
-	public ITS_TBL_Interview_Schedule(String subject, Float techRating) {
-		super();
-		this.subject = subject;
-		this.techRating = techRating;
-	}
-
 	public long getInterviewId() {
 		return interviewId;
 	}
@@ -64,10 +57,10 @@ public class ITS_TBL_Interview_Schedule {
 	public void setInterviewTime(LocalTime interviewTime) {
 		this.interviewTime = interviewTime;
 	}
-	public Float getTechRating() {
+	public int getTechRating() {
 		return techRating;
 	}
-	public void setTechRating(Float techRating) {
+	public void setTechRating(int techRating) {
 		this.techRating = techRating;
 	}
 	public LocalDate getEmpHRInterviewDate() {
@@ -76,16 +69,16 @@ public class ITS_TBL_Interview_Schedule {
 	public void setEmpHRInterviewDate(LocalDate empHRInterviewDate) {
 		this.empHRInterviewDate = empHRInterviewDate;
 	}
-	public LocalDate getEmpHRInterviewTime() {
+	public LocalTime getEmpHRInterviewTime() {
 		return empHRInterviewTime;
 	}
-	public void setEmpHRInterviewTime(LocalDate empHRInterviewTime) {
+	public void setEmpHRInterviewTime(LocalTime empHRInterviewTime) {
 		this.empHRInterviewTime = empHRInterviewTime;
 	}
-	public Float getEmpHRRating() {
+	public int getEmpHRRating() {
 		return empHRRating;
 	}
-	public void setEmpHRRating(Float empHRRating) {
+	public void setEmpHRRating(int empHRRating) {
 		this.empHRRating = empHRRating;
 	}
 	public String getResult() {
@@ -94,10 +87,10 @@ public class ITS_TBL_Interview_Schedule {
 	public void setResult(String result) {
 		this.result = result;
 	}
-	public Integer getShareResult() {
+	public int getShareResult() {
 		return shareResult;
 	}
-	public void setShareResult(Integer shareResult) {
+	public void setShareResult(int shareResult) {
 		this.shareResult = shareResult;
 	}
 	
