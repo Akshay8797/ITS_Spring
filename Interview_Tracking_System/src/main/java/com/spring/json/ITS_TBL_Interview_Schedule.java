@@ -15,9 +15,6 @@ public class ITS_TBL_Interview_Schedule {
 	private String result;
 	private int shareResult;
 	
-	
-	
-	
 	public ITS_TBL_Interview_Schedule(long interviewId, String subject, LocalDate interviewDate,
 		LocalTime interviewTime, Float techRating, LocalDate empHRInterviewDate, LocalTime empHRInterviewTime,
 		Float empHRRating, String result, int shareResult) {
@@ -33,6 +30,10 @@ public class ITS_TBL_Interview_Schedule {
 		this.result = result;
 		this.shareResult = shareResult;
 	}
+	public ITS_TBL_Interview_Schedule(Float empHRRating) {
+		this.empHRRating = empHRRating;
+	}
+	
 	public long getInterviewId() {
 		return interviewId;
 	}
