@@ -1,7 +1,5 @@
 package com.spring.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -9,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,18 +24,18 @@ public class TechController {
 	private TechService techService;
 	
 	@GetMapping("/")
-	public List<ITS_TBL_Interview_Schedule> getAllInterviewCandidates() {
-		return techService.getAllInterviewCandidates();	
+	public Object getAllInterviewCandidates(@RequestHeader(name="auth-token") String authToken) {
+		return techService.getAllInterviewCandidates(authToken);	
 	}
 	
 	@PostMapping(value="/{interviewId}", produces=MediaType.APPLICATION_JSON_VALUE, consumes=MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody String giveTechRating(@RequestBody ITS_TBL_Interview_Schedule its_tbl_interview_schedule, @PathVariable(value="interviewId") String id) {
-		return techService.giveTechRating(its_tbl_interview_schedule, id);
+	public @ResponseBody Object giveTechRating(@RequestBody ITS_TBL_Interview_Schedule its_tbl_interview_schedule, @PathVariable(value="interviewId") String id,@RequestHeader(name="auth-token") String authToken) {
+		return techService.giveTechRating(its_tbl_interview_schedule, id,authToken);
 	}
 	
 	@GetMapping("/result")
-	public List<ITS_TBL_Interview_Schedule> getFinalResultsForTech() {
-		return techService.getFinalResultsForTech();	
+	public Object getFinalResultsForTech(@RequestHeader(name="auth-token") String authToken) {
+		return techService.getFinalResultsForTech(authToken);	
 	}
 	
 }

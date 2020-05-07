@@ -232,7 +232,7 @@ List<ITS_TBL_User_Credentials_Entity> userList=userRepository.findBysessionId(au
 		LocalDate localDate=LocalDate.parse(date,newPattern);
 		LocalTime localTime=LocalTime.parse(time);
 		List<ITS_TBL_Techpanel_Entity> interviewList = new ArrayList<ITS_TBL_Techpanel_Entity>();
-		List<ITS_TBL_Techpanel_Entity> techPanelList=techService.getAllTechPanel();
+		List<ITS_TBL_Techpanel_Entity> techPanelList=techService.getAllTechPanelCheck();
 		techPanelList.stream().forEach(p1-> {
 			
 			if(p1.getInterviewScheduleList().size()==0)
@@ -292,7 +292,7 @@ List<ITS_TBL_User_Credentials_Entity> userList=userRepository.findBysessionId(au
 		LocalDate localDate=LocalDate.parse(date,newPattern);
 		LocalTime localTime=LocalTime.parse(time);
 		List<ITS_TBL_Hrpanel_Entity> interviewList = new ArrayList<ITS_TBL_Hrpanel_Entity>();
-		List<ITS_TBL_Hrpanel_Entity> HrPanelList=hrservice.getAllHrPanel();
+		List<ITS_TBL_Hrpanel_Entity> HrPanelList=hrservice.getAllHrPanels();
 		HrPanelList.stream().forEach(p1-> {
 			
 			if(p1.getInterviewScheduleList().size()==0)

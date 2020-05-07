@@ -6,13 +6,15 @@ import com.spring.entity.ITS_TBL_Hrpanel_Entity;
 import com.spring.json.ITS_TBL_Interview_Schedule;
 
 public interface HrService {
-	public List<ITS_TBL_Interview_Schedule> getAllHrCandidate();
+	public Object getAllHrCandidate(String authToken);
 
-	public String giveHRRating(ITS_TBL_Interview_Schedule its_tbl_interview_schedule, String id);
+	public Object giveHRRating(ITS_TBL_Interview_Schedule its_tbl_interview_schedule, String id,String authToken);
 
-	public List<ITS_TBL_Hrpanel_Entity> getAllHrPanel();
+	public Object getAllHrPanel(String authToken);
 
-	public List<ITS_TBL_Interview_Schedule> getResult();
+	public Object getResult(String authToken);
+	
+	public List<ITS_TBL_Hrpanel_Entity> getAllHrPanels();
 
 	
 }
