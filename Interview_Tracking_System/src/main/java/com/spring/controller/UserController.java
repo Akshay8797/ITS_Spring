@@ -25,8 +25,8 @@ import com.spring.service.UserService;
 	private UserService microService;
 	
 	@PostMapping(value="/login", produces=MediaType.APPLICATION_JSON_VALUE, consumes=MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody String loginUser(@RequestParam(required=true) String userId,@RequestParam(required=true) String password,@RequestParam(required=true) String userType) {
-		return microService.login(userId,password,userType); 
+	public @ResponseBody String loginUser(@RequestBody ITS_TBL_User_Credentials user) {
+		return microService.login(user); 
 	}
 	@PostMapping(value="/logout", produces=MediaType.APPLICATION_JSON_VALUE, consumes=MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody String logoutUser(@RequestHeader(name="auth-token") String authToken) {
@@ -41,6 +41,4 @@ import com.spring.service.UserService;
 	public Object shareDetails(@RequestParam(required=true) String userId) {
 		return microService.getSessionId(userId);	
 	}
-	
-
 }
