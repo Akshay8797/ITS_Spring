@@ -18,7 +18,7 @@ import com.spring.json.ITS_TBL_Interview_Schedule;
 import com.spring.service.TechService;
 
 @RestController
-@RequestMapping("/its")
+@RequestMapping("/")
 @CrossOrigin(origins="*")
 public class TechController {
 
