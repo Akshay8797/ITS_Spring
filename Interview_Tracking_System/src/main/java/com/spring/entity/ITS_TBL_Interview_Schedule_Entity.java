@@ -100,7 +100,9 @@ public class ITS_TBL_Interview_Schedule_Entity {
 		this.result = result;
 		this.shareResult = shareResult;
 	}
-	
+	public ITS_TBL_Interview_Schedule_Entity(Float empHRRating) {
+		this.empHRRating = empHRRating;
+	}
 	public long getInterviewId() {
 		return interviewId;
 	}
