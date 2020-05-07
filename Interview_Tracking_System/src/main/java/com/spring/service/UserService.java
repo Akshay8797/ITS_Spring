@@ -10,4 +10,5 @@ public interface UserService {
 	
 	public String resetpassword(ITS_TBL_USER_CREDENTIALS user, String newpassword);
 
+	
 }
