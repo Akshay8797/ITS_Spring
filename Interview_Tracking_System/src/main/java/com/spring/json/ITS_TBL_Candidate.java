@@ -6,7 +6,7 @@ import com.spring.entity.ITS_TBL_Interview_Schedule_Entity;
 
 public class ITS_TBL_Candidate {
 
-	private String candidateId; 
+	private long candidateId; 
 	private String primarySkills;
 	private String secondarySkills;
 	private int experience;
@@ -17,11 +17,29 @@ public class ITS_TBL_Candidate {
 	private int shareDetails;
 	private List<ITS_TBL_Interview_Schedule_Entity> interviewScheduleList;
 	
+	public ITS_TBL_Candidate()
+	{
+		super();
+	}
+	
+	public ITS_TBL_Candidate(String primarySkills, String secondarySkills, int experience, String qualification,
+			String designation, int noticePeriod, String location, int shareDetails) {
+		super();
+		this.primarySkills = primarySkills;
+		this.secondarySkills = secondarySkills;
+		this.experience = experience;
+		this.qualification = qualification;
+		this.designation = designation;
+		this.noticePeriod = noticePeriod;
+		this.location = location;
+		this.shareDetails = shareDetails;
+	}
 	
 	
-	public ITS_TBL_Candidate(String candidateId, String primarySkills, String secondarySkills, int experience,
-			String qualification, String designation, int noticePeriod, String location, int shareDetails,
-			List<ITS_TBL_Interview_Schedule_Entity> interviewScheduleList) {
+	
+	
+	public ITS_TBL_Candidate(long candidateId, String primarySkills, String secondarySkills, int experience,
+			String qualification, String designation, int noticePeriod, String location, int shareDetails) {
 		super();
 		this.candidateId = candidateId;
 		this.primarySkills = primarySkills;
@@ -41,10 +59,10 @@ public class ITS_TBL_Candidate {
 	public void setInterviewScheduleList(List<ITS_TBL_Interview_Schedule_Entity> interviewScheduleList) {
 		this.interviewScheduleList = interviewScheduleList;
 	}
-	public String getCandidateId() {
+	public long getCandidateId() {
 		return candidateId;
 	}
-	public void setCandidateId(String candidateId) {
+	public void setCandidateId(long candidateId) {
 		this.candidateId = candidateId;
 	}
 	public String getPrimarySkills() {

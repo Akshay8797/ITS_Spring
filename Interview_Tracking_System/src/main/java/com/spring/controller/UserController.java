@@ -3,10 +3,13 @@ package com.spring.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,8 +33,13 @@ import com.spring.service.UserService;
 		return microService.logout(authToken); 
 	}
 	@PostMapping(value="/resetpassword", produces=MediaType.APPLICATION_JSON_VALUE, consumes=MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody String logoutUser(@RequestBody ITS_TBL_User_Credentials user,@RequestHeader(name="new-password") String newpassword) {
-		return microService.resetpassword(user,newpassword); 
+	public @ResponseBody String logoutUser(@RequestBody ITS_TBL_User_Credentials user) {
+		return microService.resetpassword(user); 
+	}
+	
+	@GetMapping(value="/sessionId",produces=MediaType.APPLICATION_JSON_VALUE)
+	public Object shareDetails(@RequestParam(required=true) String userId) {
+		return microService.getSessionId(userId);	
 	}
 	
 

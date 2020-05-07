@@ -35,6 +35,14 @@ public class ITS_TBL_User_Credentials_Entity {
 
 	ITS_TBL_User_Credentials_Entity(){};
 	
+	public ITS_TBL_User_Credentials_Entity(String userid, String password) {
+		super();
+		this.userid = userid;
+		this.password = password;
+	}
+
+
+	
 	public ITS_TBL_User_Credentials_Entity(String userid, String password, String loginstatus, String userType,
 			String sessionId) {
 		super();

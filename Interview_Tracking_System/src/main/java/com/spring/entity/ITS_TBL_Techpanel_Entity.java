@@ -42,6 +42,12 @@ public class ITS_TBL_Techpanel_Entity {
 		this.subjects = subjects;
 	}
 	
+	public ITS_TBL_Techpanel_Entity(long techId, String techName) {
+		this.techId = techId;
+		this.techName = techName;
+	}
+	
+	
 	public ITS_TBL_Techpanel_Entity() {}
 	
 	public ITS_TBL_Techpanel_Entity(String techName, String subjects) {

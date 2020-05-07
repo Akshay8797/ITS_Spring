@@ -12,6 +12,13 @@ public class ITS_TBL_User_Credentials {
 		return sessionId;
 	}
 	public ITS_TBL_User_Credentials() {};
+	
+	public ITS_TBL_User_Credentials(String userid, String password) {
+		super();
+		this.userid = userid;
+		this.password = password;
+			}
+	
 	public ITS_TBL_User_Credentials(String userid, String password, String loginstatus, String userType,
 			String sessionId) {
 		super();

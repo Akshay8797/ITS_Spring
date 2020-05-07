@@ -21,18 +21,25 @@ public class UserServiceImpl implements UserService {
 		List<ITS_TBL_User_Credentials_Entity> userList=userRepository.findByuserid(userid);
 		if(userList==null || userList.size()==0 || userList.get(0).getPassword().equals(password)!=true)
 		{
-			return "failed" ;
+			return "" ;
 			
 		}
 		else {
 			ITS_TBL_User_Credentials_Entity userEntity=userList.get(0);
-			String sessionId=new java.rmi.server.UID().toString().substring(0,10);
+			String sessionId=new java.rmi.server.UID().toString().substring(0,20);
 			String loginstatus="online";
 			userEntity.setSessionId(sessionId);
 			userEntity.setLoginstatus(loginstatus);
-			userRepository.save(userEntity);
-			return "sessionID:"+sessionId;
-		}
+			String usertype=userEntity.getUserType();
+			if(usertype.equalsIgnoreCase("admin"))
+			return "adminHome";
+			else if(usertype.equalsIgnoreCase("tech"))
+			return "techHome"	;
+			else if(usertype.equalsIgnoreCase("hr"))
+			return "hrHome";
+			else
+			return "";					
+				}
 	}
 		@Override
 		public String logout(String authToken) {
@@ -55,7 +62,7 @@ public class UserServiceImpl implements UserService {
 		
 	}
 		@Override
-		public String resetpassword(ITS_TBL_User_Credentials user,String newpassword) {
+		public String resetpassword(ITS_TBL_User_Credentials user) {
 			String userid= user.getUserid();
 			String password=user.getPassword();
 			List<ITS_TBL_User_Credentials_Entity> userList=userRepository.findByuserid(userid);
@@ -66,10 +73,25 @@ public class UserServiceImpl implements UserService {
 			}
 			else {
 				ITS_TBL_User_Credentials_Entity userEntity=userList.get(0);
-				userEntity.setPassword(newpassword);
+				userEntity.setPassword(user.getPassword());
 				userRepository.save(userEntity);
 				return "password updated";
 			}
 
 		}
+		
+		public String getSessionId(String userid) {
+			List<ITS_TBL_User_Credentials_Entity> userList=userRepository.findByuserid(userid);
+			if(userList==null || userList.size()==0)
+			{
+				return "";
+				
+			}
+			else {
+				ITS_TBL_User_Credentials_Entity userEntity=userList.get(0);
+				return userEntity.getSessionId();
+			}
+
+		};
+		
 }

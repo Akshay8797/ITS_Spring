@@ -14,7 +14,15 @@ public class ITS_TBL_User_Profile_Json {
 	private String pincode;
 	private String mobileNo;
 	private String emailId;
+	private long candidateId;
 	
+	
+	public long getCandidateId() {
+		return candidateId;
+	}
+	public void setCandidateId(long candidateId) {
+		this.candidateId = candidateId;
+	}
 	public String getFirstName() {
 		return firstName;
 	}
@@ -81,6 +89,43 @@ public class ITS_TBL_User_Profile_Json {
 	public void setEmailId(String emailId) {
 		this.emailId = emailId;
 	}
+	public ITS_TBL_User_Profile_Json(long candidateId,String firstName, String lastName, LocalDate dateOfBirth, String gender,
+			String street, String location, String city, String state, String pincode, String mobileNo, String emailId) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.dateOfBirth = dateOfBirth;
+		this.gender = gender;
+		this.street = street;
+		this.location = location;
+		this.city = city;
+		this.state = state;
+		this.pincode = pincode;
+		this.mobileNo = mobileNo;
+		this.emailId = emailId;
+		this.candidateId = candidateId;
+	}
+	
+	public ITS_TBL_User_Profile_Json() {
+		super();
+	}
+	public ITS_TBL_User_Profile_Json(String firstName, String lastName, LocalDate dateOfBirth, String gender,
+			String street, String location, String city, String state, String pincode, String mobileNo,
+			String emailId) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.dateOfBirth = dateOfBirth;
+		this.gender = gender;
+		this.street = street;
+		this.location = location;
+		this.city = city;
+		this.state = state;
+		this.pincode = pincode;
+		this.mobileNo = mobileNo;
+		this.emailId = emailId;
+	}
 		
+	
 	
 }

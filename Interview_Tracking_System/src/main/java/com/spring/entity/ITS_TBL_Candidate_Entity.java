@@ -20,7 +20,7 @@ public class ITS_TBL_Candidate_Entity {
 	@Id
 	@GeneratedValue 	
 	@Column(name="CandidateId")
-	private String candidateId;
+	private long candidateId;
 	
 	@Column(name="PrimarySkills")
 	private String primarySkills;
@@ -49,14 +49,21 @@ public class ITS_TBL_Candidate_Entity {
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy="candidateEntity")
 	private List<ITS_TBL_Interview_Schedule_Entity> interviewScheduleList;
 	
-	@OneToOne(mappedBy = "candidate")
+	@OneToOne(mappedBy = "candidate",cascade = CascadeType.ALL)
     private ITS_TBL_User_Profile_Entity user;
 	
+	public ITS_TBL_User_Profile_Entity getUser() {
+		return user;
+	}
+
+	public void setUser(ITS_TBL_User_Profile_Entity user) {
+		this.user = user;
+	}
+
 	public ITS_TBL_Candidate_Entity() {}
 	
-	public ITS_TBL_Candidate_Entity(String candidateId, String primarySkills, String secondarySkills, int experience,
-		String qualification, String designation, int noticePeriod, String location, int shareDetails,
-		List<ITS_TBL_Interview_Schedule_Entity> interviewScheduleList) {
+	public ITS_TBL_Candidate_Entity(long candidateId, String primarySkills, String secondarySkills, int experience,
+		String qualification, String designation, int noticePeriod, String location, int shareDetails) {
 		super();
 		this.candidateId = candidateId;
 		this.primarySkills = primarySkills;
@@ -67,14 +74,13 @@ public class ITS_TBL_Candidate_Entity {
 		this.noticePeriod = noticePeriod;
 		this.location = location;
 		this.shareDetails = shareDetails;
-		this.interviewScheduleList = interviewScheduleList;
 	}
 	
-	public String getCandidateId() {
+	public long getCandidateId() {
 		return candidateId;
 	}
 	
-	public void setCandidateId(String candidateId) {
+	public void setCandidateId(long candidateId) {
 		this.candidateId = candidateId;
 	}
 	public String getPrimarySkills() {

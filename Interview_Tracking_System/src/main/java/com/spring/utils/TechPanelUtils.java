@@ -17,11 +17,11 @@ public class TechPanelUtils {
 	}
 	
 	public static ITS_TBL_Techpanel_Json convertTechpanelEntityToTechpanel(ITS_TBL_Techpanel_Entity techpanelEntity) {
-		return new ITS_TBL_Techpanel_Json(techpanelEntity.getTechName(),techpanelEntity.getSubjects());
+		return new ITS_TBL_Techpanel_Json(techpanelEntity.getTechId(),techpanelEntity.getTechName(),techpanelEntity.getSubjects());
 	}
 
 	public static ITS_TBL_Techpanel_Entity convertTechPanelToTechPanelEntity(ITS_TBL_Techpanel_Json techpanel) {
-		return new ITS_TBL_Techpanel_Entity(techpanel.getTechName(),techpanel.getSubjects());
+		return new ITS_TBL_Techpanel_Entity(techpanel.getTechId(),techpanel.getTechName(),techpanel.getSubjects());
 
 	}
 

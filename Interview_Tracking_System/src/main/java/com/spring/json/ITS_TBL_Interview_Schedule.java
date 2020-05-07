@@ -18,11 +18,11 @@ public class ITS_TBL_Interview_Schedule {
 	
 	
 	
-	public ITS_TBL_Interview_Schedule( String subject, LocalDate interviewDate,
+	public ITS_TBL_Interview_Schedule(long interviewId, String subject, LocalDate interviewDate,
 		LocalTime interviewTime, int techRating, LocalDate empHRInterviewDate, LocalTime empHRInterviewTime,
 		int empHRRating, String result, int shareResult) {
 		super();
-		
+		this.interviewId=interviewId;
 		this.subject = subject;
 		this.interviewDate = interviewDate;
 		this.interviewTime = interviewTime;

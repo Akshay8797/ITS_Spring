@@ -27,7 +27,7 @@ public class ITS_TBL_Interview_Schedule_Entity {
 	@Column(name="InterviewTime")
 	private LocalTime interviewTime;
 	
-	@Column(name="TechRating")
+	@Column(name="TechRating",nullable=false)
 	private int techRating;
 	
 	@Column(name="empHRInterviewDate")
@@ -36,7 +36,7 @@ public class ITS_TBL_Interview_Schedule_Entity {
 	@Column(name="empHRInterviewTime")
 	private LocalTime empHRInterviewTime;
 	
-	@Column(name="empHRRating")
+	@Column(name="empHRRating",nullable=false)
 	private int empHRRating;
 	
 	@Column(name="Result")
@@ -85,11 +85,11 @@ public class ITS_TBL_Interview_Schedule_Entity {
 	
 	public ITS_TBL_Interview_Schedule_Entity() {}
 
-	public ITS_TBL_Interview_Schedule_Entity( String subject, LocalDate interviewDate,
-		LocalTime interviewTime, int techRating, LocalDate empHRInterviewDate, LocalTime empHRInterviewTime,
-		int empHRRating, String result, int shareResult) {
+	public ITS_TBL_Interview_Schedule_Entity( long interviewId,String subject, LocalDate interviewDate,
+		LocalTime interviewTime, Integer techRating, LocalDate empHRInterviewDate, LocalTime empHRInterviewTime,
+		Integer empHRRating, String result, Integer shareResult) {
 		super();
-		
+		this.interviewId=interviewId;
 		this.subject = subject;
 		this.interviewDate = interviewDate;
 		this.interviewTime = interviewTime;
@@ -128,7 +128,7 @@ public class ITS_TBL_Interview_Schedule_Entity {
 	public int getTechRating() {
 		return techRating;
 	}
-	public void setTechRating(int techRating) {
+	public void setTechRating(Integer techRating) {
 		this.techRating = techRating;
 	}
 	public LocalDate getEmpHRInterviewDate() {
@@ -143,10 +143,10 @@ public class ITS_TBL_Interview_Schedule_Entity {
 	public void setEmpHRInterviewTime(LocalTime localTime) {
 		this.empHRInterviewTime = localTime;
 	}
-	public int getEmpHRRating() {
+	public Integer getEmpHRRating() {
 		return empHRRating;
 	}
-	public void setEmpHRRating(int empHRRating) {
+	public void setEmpHRRating(Integer empHRRating) {
 		this.empHRRating = empHRRating;
 	}
 	public String getResult() {
@@ -158,7 +158,7 @@ public class ITS_TBL_Interview_Schedule_Entity {
 	public int getShareResult() {
 		return shareResult;
 	}
-	public void setShareResult(int shareResult) {
+	public void setShareResult(Integer shareResult) {
 		this.shareResult = shareResult;
 	}	
 }

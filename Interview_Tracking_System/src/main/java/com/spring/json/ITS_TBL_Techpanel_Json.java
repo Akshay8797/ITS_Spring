@@ -13,6 +13,14 @@ public class ITS_TBL_Techpanel_Json {
 		this.techName = techName;
 		this.subjects = subjects;
 	}
+	
+	public ITS_TBL_Techpanel_Json(long techId, String techName) {
+		super();
+		this.techId = techId;
+		this.techName = techName;
+	}
+	
+	
 	public long getTechId() {
 		return techId;
 	}

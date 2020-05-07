@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -19,7 +20,10 @@ public class ITS_TBL_User_Profile_Entity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	private long candidateId;
+	
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@MapsId
 	@JoinColumn(name="CandidateId")
 	private ITS_TBL_Candidate_Entity candidate;
 	
