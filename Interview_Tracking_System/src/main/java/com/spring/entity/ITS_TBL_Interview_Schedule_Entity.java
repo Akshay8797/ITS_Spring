@@ -12,22 +12,24 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
 @Entity
-@Table(name="ITS_TBL_Interview_Schedule")
+@Table(name = "ITS_TBL_Interview_Schedule")
 public class ITS_TBL_Interview_Schedule_Entity {
 	@Id
-	@GeneratedValue 	
-	@Column(name="InterviewID")
+	@GeneratedValue
+	@Column(name = "InterviewID")
 	private long interviewId;
-	
-	@Column(name="Subject")
+
+	@Column(name = "Subject")
 	private String subject;
-	
-	@Column(name="InterviewDate")
+
+	@Column(name = "InterviewDate")
 	private LocalDate interviewDate;
-	
-	@Column(name="InterviewTime")
+
+	@Column(name = "InterviewTime")
 	private LocalTime interviewTime;
+<<<<<<< HEAD
 	
 	@Column(name="TechRating")
 	private Float techRating;
@@ -52,6 +54,69 @@ public class ITS_TBL_Interview_Schedule_Entity {
 	public ITS_TBL_Interview_Schedule_Entity(long interviewId, String subject, LocalDate interviewDate,
 		LocalTime interviewTime, Float techRating, LocalDate empHRInterviewDate, LocalDate empHRInterviewTime,
 		Float empHRRating, String result, Integer shareResult) {
+=======
+
+	@Column(name = "TechRating", nullable = false)
+	private float techRating;
+
+	@Column(name = "empHRInterviewDate")
+	private LocalDate empHRInterviewDate;
+
+	@Column(name = "empHRInterviewTime")
+	private LocalTime empHRInterviewTime;
+
+	@Column(name = "empHRRating", nullable = false)
+	private float empHRRating;
+
+	@Column(name = "Result")
+	private String result;
+
+	@Column(name = "ShareResult")
+	private int shareResult;
+
+	@ManyToOne()
+	@JoinColumn(name = "CandidateId")
+	private ITS_TBL_Candidate_Entity candidateEntity;
+
+	@ManyToOne()
+	@JoinColumn(name = "empHRId")
+	private ITS_TBL_Hrpanel_Entity hrEntity;
+
+	@ManyToOne()
+	@JoinColumn(name = "TechId")
+	private ITS_TBL_Techpanel_Entity TechEntity;
+
+	public ITS_TBL_Candidate_Entity getCandidateEntity() {
+		return candidateEntity;
+	}
+
+	public void setCandidateEntity(ITS_TBL_Candidate_Entity candidateEntity) {
+		this.candidateEntity = candidateEntity;
+	}
+
+	public ITS_TBL_Hrpanel_Entity getHrEntity() {
+		return hrEntity;
+	}
+
+	public void setHrEntity(ITS_TBL_Hrpanel_Entity hrEntity) {
+		this.hrEntity = hrEntity;
+	}
+
+	public ITS_TBL_Techpanel_Entity getTechEntity() {
+		return TechEntity;
+	}
+
+	public void setTechEntity(ITS_TBL_Techpanel_Entity techEntity) {
+		TechEntity = techEntity;
+	}
+
+	public ITS_TBL_Interview_Schedule_Entity() {
+	}
+
+	public ITS_TBL_Interview_Schedule_Entity(long interviewId, String subject, LocalDate interviewDate,
+			LocalTime interviewTime, Float techRating, LocalDate empHRInterviewDate, LocalTime empHRInterviewTime,
+			Float empHRRating, String result, Integer shareResult) {
+>>>>>>> 3af5cd6d0bcf7e9b9c56c1dc220303c856b2f1e7
 		super();
 		this.interviewId = interviewId;
 		this.subject = subject;
@@ -64,43 +129,62 @@ public class ITS_TBL_Interview_Schedule_Entity {
 		this.result = result;
 		this.shareResult = shareResult;
 	}
-	
+
 	public long getInterviewId() {
 		return interviewId;
 	}
+
 	public void setInterviewId(long interviewId) {
 		this.interviewId = interviewId;
 	}
+
 	public String getSubject() {
 		return subject;
 	}
+
 	public void setSubject(String subject) {
 		this.subject = subject;
 	}
+
 	public LocalDate getInterviewDate() {
 		return interviewDate;
 	}
+
 	public void setInterviewDate(LocalDate interviewDate) {
 		this.interviewDate = interviewDate;
 	}
+
 	public LocalTime getInterviewTime() {
 		return interviewTime;
 	}
+
 	public void setInterviewTime(LocalTime interviewTime) {
 		this.interviewTime = interviewTime;
 	}
+<<<<<<< HEAD
 	public Float getTechRating() {
 		return techRating;
 	}
 	public void setTechRating(Float techRating) {
+=======
+
+	public float getTechRating() {
+		return techRating;
+	}
+
+	public void setTechRating(float techRating) {
+>>>>>>> 3af5cd6d0bcf7e9b9c56c1dc220303c856b2f1e7
 		this.techRating = techRating;
 	}
+
 	public LocalDate getEmpHRInterviewDate() {
 		return empHRInterviewDate;
 	}
+
 	public void setEmpHRInterviewDate(LocalDate empHRInterviewDate) {
 		this.empHRInterviewDate = empHRInterviewDate;
 	}
+<<<<<<< HEAD
 	public LocalDate getEmpHRInterviewTime() {
 		return empHRInterviewTime;
 	}
@@ -111,18 +195,42 @@ public class ITS_TBL_Interview_Schedule_Entity {
 		return empHRRating;
 	}
 	public void setEmpHRRating(Float empHRRating) {
+=======
+
+	public LocalTime getEmpHRInterviewTime() {
+		return empHRInterviewTime;
+	}
+
+	public void setEmpHRInterviewTime(LocalTime localTime) {
+		this.empHRInterviewTime = localTime;
+	}
+
+	public float getEmpHRRating() {
+		return empHRRating;
+	}
+
+	public void setEmpHRRating(Integer empHRRating) {
+>>>>>>> 3af5cd6d0bcf7e9b9c56c1dc220303c856b2f1e7
 		this.empHRRating = empHRRating;
 	}
+
 	public String getResult() {
 		return result;
 	}
+
 	public void setResult(String result) {
 		this.result = result;
 	}
+<<<<<<< HEAD
 	public Integer getShareResult() {
+=======
+
+	public int getShareResult() {
+>>>>>>> 3af5cd6d0bcf7e9b9c56c1dc220303c856b2f1e7
 		return shareResult;
 	}
+
 	public void setShareResult(Integer shareResult) {
 		this.shareResult = shareResult;
-	}	
+	}
 }
