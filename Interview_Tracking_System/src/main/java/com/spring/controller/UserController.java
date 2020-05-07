@@ -27,17 +27,17 @@ public class UserController {
 	public @ResponseBody String loginUser(@RequestBody ITS_TBL_USER_CREDENTIALS user) {
 		return userService.login(user);
 	}
-	/*@PostMapping(value="/logout", produces=MediaType.APPLICATION_JSON_VALUE, consumes=MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(value="/logout", produces=MediaType.APPLICATION_JSON_VALUE, consumes=MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody String logoutUser(@RequestHeader(name="auth-token") String authToken) {
 		return userService.logout(authToken); 
-	}*/
+	}
 	@PostMapping(value = "/resetpassword", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody String resetpassword(@RequestBody ITS_TBL_USER_CREDENTIALS user,
 			@RequestParam("newpassword") String newpassword) {
 		return userService.resetpassword(user, newpassword);
 	}
-	@GetMapping("/logout")
+	/*@GetMapping("/logout")
 	public String logoutAdmin() {
 		return userService.logout(sessionId);
-	}
+	}*/
 }
