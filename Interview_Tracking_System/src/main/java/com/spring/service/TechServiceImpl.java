@@ -20,7 +20,7 @@ public class TechServiceImpl implements TechService {
 	
 	@Override
 	public List<ITS_TBL_Interview_Schedule> getAllInterviewCandidates() {
-		List<ITS_TBL_Interview_Schedule_Entity> interviewCandidateEntityList = interviewCandidateRepo.findByTechRatingIsNull();
+		List<ITS_TBL_Interview_Schedule_Entity> interviewCandidateEntityList = interviewCandidateRepo.findByInterviewTimeIsNotNull();
 		return InterviewScheduleUtils.convertScheduleEntityListToScheduleList(interviewCandidateEntityList);				
 	}
 	
@@ -28,8 +28,8 @@ public class TechServiceImpl implements TechService {
 	public String giveTechRating(ITS_TBL_Interview_Schedule its_tbl_interview_schedule, String id) {
 		ITS_TBL_Interview_Schedule_Entity its_tbl_interview_schedule_entity = interviewCandidateRepo.findById(Long.valueOf(id)).get();
 		if(its_tbl_interview_schedule_entity.getTechRating()==null) {
-			its_tbl_interview_schedule_entity.setTechRating(its_tbl_interview_schedule.getTechRating());;
-			its_tbl_interview_schedule_entity.setSubject(its_tbl_interview_schedule.getSubject());;
+			its_tbl_interview_schedule_entity.setTechRating(its_tbl_interview_schedule.getTechRating());
+			its_tbl_interview_schedule_entity.setSubject(its_tbl_interview_schedule.getSubject());
 			
 		 interviewCandidateRepo.save(its_tbl_interview_schedule_entity);
 		 return "{\"result\": \"Success \"}";	
