@@ -1,15 +1,17 @@
 package com.spring.rest.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Component;
 
-import com.spring.entity.ITS_TBL_USER_CREDENTIALS_ENTITY;
+import com.spring.entity.ITS_TBL_User_Credentials_Entity;
 
 @Component
-public interface UserRepository extends JpaRepository<ITS_TBL_USER_CREDENTIALS_ENTITY, String> {
+public interface UserRepository extends JpaRepository<ITS_TBL_User_Credentials_Entity, Long> {
 
-	ITS_TBL_USER_CREDENTIALS_ENTITY findByuserid(String userid);
+	List<ITS_TBL_User_Credentials_Entity> findByuserid(String userid);
 
-	ITS_TBL_USER_CREDENTIALS_ENTITY findBysessionid(String authToken);
+	List<ITS_TBL_User_Credentials_Entity> findBysessionId(String sessionId);
 
 }

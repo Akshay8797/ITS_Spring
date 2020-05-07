@@ -1,45 +1,69 @@
-package com.spring.json;
+package com.spring.entity;
 
 import java.util.List;
 
-import com.spring.entity.ITS_TBL_Interview_Schedule_Entity;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
-public class ITS_TBL_Candidate {
-
-	private long candidateId; 
+@Entity
+@Table(name="its_tbl_candidate")
+public class ITS_TBL_Candidate_Entity {
+	
+	@Id
+	@GeneratedValue 	
+	@Column(name="CandidateId")
+	private long candidateId;
+	
+	@Column(name="PrimarySkills")
 	private String primarySkills;
+	
+	@Column(name="SecondarySkillS")
 	private String secondarySkills;
+	
+	@Column(name="Experience")
 	private int experience;
+	
+	@Column(name="Qualification")
 	private String qualification;
+	
+	@Column(name="Designation")
 	private String designation;
+	
+	@Column(name="NoticePeriod")
 	private int noticePeriod;
+	
+	@Column(name="Location")
 	private String location;
+	
+	@Column(name="ShareDetails")
 	private int shareDetails;
+	
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy="candidateEntity")
 	private List<ITS_TBL_Interview_Schedule_Entity> interviewScheduleList;
 	
-	public ITS_TBL_Candidate()
-	{
-		super();
+	@OneToOne(mappedBy = "candidate",cascade = CascadeType.ALL)
+    private ITS_TBL_User_Profile_Entity user;
+	
+	public ITS_TBL_User_Profile_Entity getUser() {
+		return user;
 	}
-	
-	public ITS_TBL_Candidate(String primarySkills, String secondarySkills, int experience, String qualification,
-			String designation, int noticePeriod, String location, int shareDetails) {
-		super();
-		this.primarySkills = primarySkills;
-		this.secondarySkills = secondarySkills;
-		this.experience = experience;
-		this.qualification = qualification;
-		this.designation = designation;
-		this.noticePeriod = noticePeriod;
-		this.location = location;
-		this.shareDetails = shareDetails;
+
+	public void setUser(ITS_TBL_User_Profile_Entity user) {
+		this.user = user;
 	}
+
+	public ITS_TBL_Candidate_Entity() {}
 	
-	
-	
-	
-	public ITS_TBL_Candidate(long candidateId, String primarySkills, String secondarySkills, int experience,
-			String qualification, String designation, int noticePeriod, String location, int shareDetails) {
+	public ITS_TBL_Candidate_Entity(long candidateId, String primarySkills, String secondarySkills, int experience,
+		String qualification, String designation, int noticePeriod, String location, int shareDetails) {
 		super();
 		this.candidateId = candidateId;
 		this.primarySkills = primarySkills;
@@ -50,18 +74,12 @@ public class ITS_TBL_Candidate {
 		this.noticePeriod = noticePeriod;
 		this.location = location;
 		this.shareDetails = shareDetails;
-		this.interviewScheduleList = interviewScheduleList;
-		
 	}
-	public List<ITS_TBL_Interview_Schedule_Entity> getInterviewScheduleList() {
-		return interviewScheduleList;
-	}
-	public void setInterviewScheduleList(List<ITS_TBL_Interview_Schedule_Entity> interviewScheduleList) {
-		this.interviewScheduleList = interviewScheduleList;
-	}
+	
 	public long getCandidateId() {
 		return candidateId;
 	}
+	
 	public void setCandidateId(long candidateId) {
 		this.candidateId = candidateId;
 	}
@@ -112,5 +130,12 @@ public class ITS_TBL_Candidate {
 	}
 	public void setShareDetails(int shareDetails) {
 		this.shareDetails = shareDetails;
-	}	
+	}
+	public List<ITS_TBL_Interview_Schedule_Entity> getInterviewScheduleList() {
+		return interviewScheduleList;
+	}
+	public void setInterviewScheduleList(List<ITS_TBL_Interview_Schedule_Entity> interviewScheduleList) {
+		this.interviewScheduleList = interviewScheduleList;
+	}
+
 }
