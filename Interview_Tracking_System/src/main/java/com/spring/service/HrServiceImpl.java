@@ -5,8 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.spring.entity.ITS_TBL_Hrpanel_Entity;
 import com.spring.entity.ITS_TBL_Interview_Schedule_Entity;
 import com.spring.json.ITS_TBL_Interview_Schedule;
+import com.spring.rest.repository.HrpanelRepository;
 import com.spring.rest.repository.InterviewScheduleRepository;
 import com.spring.utils.InterviewScheduleUtils;
 
@@ -14,17 +16,11 @@ import com.spring.utils.InterviewScheduleUtils;
 public class HrServiceImpl implements HrService {
 	@Autowired
 	private InterviewScheduleRepository hrcandidateRepo;
-/*
+
 	@Override
 	public List<ITS_TBL_Interview_Schedule> getAllHrCandidate() {
 		List<ITS_TBL_Interview_Schedule_Entity> hrcandidateEntityList = hrcandidateRepo
 				.findByTechRatingGreaterThan((Float) 3f);
-		return InterviewScheduleUtils.convertScheduleEntityListToScheduleList(hrcandidateEntityList);
-	}
-*/	
-	@Override
-	public List<ITS_TBL_Interview_Schedule> getAllHrCandidate() {
-		List<ITS_TBL_Interview_Schedule_Entity> hrcandidateEntityList = hrcandidateRepo.findByHRInterviewTimeIsNullAndfindByTechRatingIsGreaterThan3();
 		return InterviewScheduleUtils.convertScheduleEntityListToScheduleList(hrcandidateEntityList);
 	}
 
@@ -49,5 +45,13 @@ public class HrServiceImpl implements HrService {
 		List<ITS_TBL_Interview_Schedule_Entity> hrCandidateEntityList = hrcandidateRepo.findByShareResultIsNotNull();
 		return InterviewScheduleUtils.convertScheduleEntityListToScheduleList(hrCandidateEntityList);
 
+	}
+
+	@Autowired
+	private HrpanelRepository hrRepository;
+
+	@Override
+	public List<ITS_TBL_Hrpanel_Entity> getAllHrPanel() {
+		return hrRepository.findAll();
 	}
 }
