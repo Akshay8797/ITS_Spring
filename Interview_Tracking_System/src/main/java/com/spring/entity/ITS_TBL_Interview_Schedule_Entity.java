@@ -27,7 +27,7 @@ public class ITS_TBL_Interview_Schedule_Entity {
 	@Column(name="InterviewTime")
 	private LocalTime interviewTime;
 	
-	@Column(name="TechRating",nullable=false)
+	@Column(name="TechRating")
 	private Float techRating;
 	
 	@Column(name="empHRInterviewDate")
@@ -36,7 +36,7 @@ public class ITS_TBL_Interview_Schedule_Entity {
 	@Column(name="empHRInterviewTime")
 	private LocalTime empHRInterviewTime;
 	
-	@Column(name="empHRRating",nullable=false)
+	@Column(name="empHRRating")
 	private Float empHRRating;
 	
 	@Column(name="Result")

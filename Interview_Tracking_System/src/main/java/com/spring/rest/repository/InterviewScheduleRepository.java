@@ -23,10 +23,15 @@ public interface InterviewScheduleRepository extends JpaRepository<ITS_TBL_Inter
 
 	List<ITS_TBL_Interview_Schedule_Entity> findByTechRatingIsNotNull();
 
-	@Query(value = "SELECT * FROM ITS_TBL_Interview_Schedule i WHERE i.interview_time is NULL AND i.tech_rating is NULL", nativeQuery = true)
-	List<ITS_TBL_Interview_Schedule_Entity> findByInterviewTimeIsNullAndfindByTechRatingIsNull();
+	@Query(value = "SELECT * FROM ITS_TBL_Interview_Schedule i WHERE i.interview_time is not NULL AND i.tech_rating = 0", nativeQuery = true)
+	List<ITS_TBL_Interview_Schedule_Entity> findByInterviewTimeIsNotNullAndfindByTechRatingIsNull();
 
 	@Query(value = "SELECT * FROM ITS_TBL_Interview_Schedule i WHERE i.emphrinterview_time is NULL AND i.tech_rating >3.0", nativeQuery = true)
 	List<ITS_TBL_Interview_Schedule_Entity> findByHRInterviewTimeIsNullAndfindByTechRatingIsGreaterThan3();
-
+	
+	@Query(value = "SELECT * FROM ITS_TBL_Interview_Schedule i WHERE i.share_result = 1 OR i.share_result = 3", nativeQuery = true)
+	List<ITS_TBL_Interview_Schedule_Entity> findByCheckShareResult();
+	
+	@Query(value = "SELECT * FROM ITS_TBL_Interview_Schedule i WHERE i.share_result = 2 OR i.share_result = 3", nativeQuery = true)	
+	List<ITS_TBL_Interview_Schedule_Entity> findByCheckShareHrResult();
 }

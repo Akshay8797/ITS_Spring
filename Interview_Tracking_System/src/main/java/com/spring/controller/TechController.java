@@ -17,24 +17,24 @@ import com.spring.json.ITS_TBL_Interview_Schedule;
 import com.spring.service.TechService;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/tech")
 @CrossOrigin(origins="*")
 public class TechController {
 
 	@Autowired
 	private TechService techService;
 	
-	@GetMapping("/tech")
+	@GetMapping("/")
 	public List<ITS_TBL_Interview_Schedule> getAllInterviewCandidates() {
 		return techService.getAllInterviewCandidates();	
 	}
 	
-	@PostMapping(value="/tech/{interviewId}", produces=MediaType.APPLICATION_JSON_VALUE, consumes=MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(value="/{interviewId}", produces=MediaType.APPLICATION_JSON_VALUE, consumes=MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody String giveTechRating(@RequestBody ITS_TBL_Interview_Schedule its_tbl_interview_schedule, @PathVariable(value="interviewId") String id) {
 		return techService.giveTechRating(its_tbl_interview_schedule, id);
 	}
 	
-	@GetMapping("/tech/result")
+	@GetMapping("/result")
 	public List<ITS_TBL_Interview_Schedule> getFinalResultsForTech() {
 		return techService.getFinalResultsForTech();	
 	}

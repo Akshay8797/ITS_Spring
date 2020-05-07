@@ -41,7 +41,7 @@ public class HrServiceImpl implements HrService {
 
 	@Override
 	public List<ITS_TBL_Interview_Schedule> getResult() {
-		List<ITS_TBL_Interview_Schedule_Entity> hrCandidateEntityList = hrcandidateRepo.findByShareResultIsNotNull();
+		List<ITS_TBL_Interview_Schedule_Entity> hrCandidateEntityList = hrcandidateRepo.findByCheckShareHrResult();
 		return InterviewScheduleUtils.convertScheduleEntityListToScheduleList(hrCandidateEntityList);
 
 	}

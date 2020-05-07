@@ -17,13 +17,13 @@ import com.spring.json.ITS_TBL_Interview_Schedule;
 import com.spring.service.HrService;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/hr")
 @CrossOrigin(origins = "*")
 public class HrController {
 	@Autowired
 	private HrService hrService;
 
-	@GetMapping("/hr")
+	@GetMapping("/")
 	public List<ITS_TBL_Interview_Schedule> getAllHrCandidate() {
 		return hrService.getAllHrCandidate();
 	}

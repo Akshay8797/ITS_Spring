@@ -28,14 +28,14 @@ public class TechServiceImpl implements TechService {
 	
 	@Override
 	public List<ITS_TBL_Interview_Schedule> getAllInterviewCandidates() {
-		List<ITS_TBL_Interview_Schedule_Entity> interviewCandidateEntityList = interviewCandidateRepo.findByInterviewTimeIsNullAndfindByTechRatingIsNull();
+		List<ITS_TBL_Interview_Schedule_Entity> interviewCandidateEntityList = interviewCandidateRepo.findByInterviewTimeIsNotNullAndfindByTechRatingIsNull();
 		return InterviewScheduleUtils.convertScheduleEntityListToScheduleList(interviewCandidateEntityList);				
 	}
 	
 	@Override
 	public String giveTechRating(ITS_TBL_Interview_Schedule its_tbl_interview_schedule, String id) {
 		ITS_TBL_Interview_Schedule_Entity its_tbl_interview_schedule_entity = interviewCandidateRepo.findById(Long.valueOf(id)).get();
-		if(its_tbl_interview_schedule_entity.getTechRating()==null) {
+		if(its_tbl_interview_schedule_entity.getTechRating()==0.0) {
 			its_tbl_interview_schedule_entity.setTechRating(its_tbl_interview_schedule.getTechRating());
 			its_tbl_interview_schedule_entity.setSubject(its_tbl_interview_schedule.getSubject());
 			
@@ -48,7 +48,7 @@ public class TechServiceImpl implements TechService {
 	
 	@Override
 	public List<ITS_TBL_Interview_Schedule> getFinalResultsForTech() {
-		List<ITS_TBL_Interview_Schedule_Entity> interviewCandidateEntityList = interviewCandidateRepo.findByShareResultIsNotNull();
+		List<ITS_TBL_Interview_Schedule_Entity> interviewCandidateEntityList = interviewCandidateRepo.findByCheckShareResult();
 		return InterviewScheduleUtils.convertScheduleEntityListToScheduleList(interviewCandidateEntityList);
 		
 	}

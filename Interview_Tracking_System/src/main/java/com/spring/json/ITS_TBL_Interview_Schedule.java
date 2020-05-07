@@ -16,6 +16,14 @@ public class ITS_TBL_Interview_Schedule {
 	private int shareResult;
 	
 	
+	public ITS_TBL_Interview_Schedule() {}
+		
+	public ITS_TBL_Interview_Schedule(Float techRating,String subject) {
+		this.techRating=techRating;
+		this.subject=subject;
+		
+	}
+	
 	
 	
 	public ITS_TBL_Interview_Schedule(long interviewId, String subject, LocalDate interviewDate,
