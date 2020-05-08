@@ -15,23 +15,24 @@ public class UserServiceImpl implements UserService {
 	private UserRepository userRepository;
 
 	@Override
-	public String login(ITS_TBL_User_Credentials user) {
-		String userId = user.getUserid();
-		String password = user.getPassword();
-		List<ITS_TBL_User_Credentials_Entity> userList = userRepository.findByuserid(userId);
-		if (userList == null || userList.size() == 0 || userList.get(0).getPassword().equals(password) != true) {
-			return "failed";
-
-		} else {
-			ITS_TBL_User_Credentials_Entity userEntity = userList.get(0);
-			String sessionId = new java.rmi.server.UID().toString().substring(0, 20);
-			String loginstatus = "online";
+	public String login(String userId, String password, String userType) {
+		List<ITS_TBL_User_Credentials_Entity> userList=userRepository.findByuserid(userId);
+		if(userList==null || userList.size()==0 || userList.get(0).getPassword().equals(password)!=true)
+		{
+			return "failed" ;
+			
+		}
+		else {
+			ITS_TBL_User_Credentials_Entity userEntity=userList.get(0);
+			String sessionId=new java.rmi.server.UID().toString().substring(0,20);
+			String loginstatus="online";
 			userEntity.setSessionId(sessionId);
 			userEntity.setLoginstatus(loginstatus);
+			userEntity.setUserType(userType);
 			userRepository.save(userEntity);
 			return userEntity.getSessionId();
-
-		}
+								
+				}
 	}
 
 	@Override

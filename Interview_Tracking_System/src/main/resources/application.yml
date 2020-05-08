@@ -4,7 +4,8 @@ spring:
         url: jdbc:mysql://localhost:3306/itsdb
         username: root
         password: ark_angel
-
+    server:
+        port:8080        
     jpa:
         generate-ddl: true
         show-sql: true
@@ -12,3 +13,5 @@ spring:
         hibernate:
             ddl-auto: update
             dialect: org.hibernate.dialect.MySQLDialect
+            
+            

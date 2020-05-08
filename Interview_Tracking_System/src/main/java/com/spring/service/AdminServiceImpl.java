@@ -344,6 +344,7 @@ List<ITS_TBL_User_Credentials_Entity> userList=userRepository.findBysessionId(au
 		newInterview.setSubject(subject);
 		newInterview.setEmpHRRating((float) 0.0);
 		newInterview.setTechRating((float) 0.0);
+		allCandidatesNew.remove(candidateRepository.findByCandidateId(candidateId).get(0));
 		interviewScheduleRepository.save(newInterview);
 		return InterviewScheduleUtils.convertScheduleEntityToSchedule(newInterview);		
 		}

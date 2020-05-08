@@ -13,6 +13,30 @@ import javax.persistence.Table;
 @Entity
 @Table(name="ITS_TBL_Interview_Schedule")
 public class ITS_TBL_Interview_Schedule_Entity {
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((candidateEntity == null) ? 0 : candidateEntity.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ITS_TBL_Interview_Schedule_Entity other = (ITS_TBL_Interview_Schedule_Entity) obj;
+		if (candidateEntity == null) {
+			if (other.candidateEntity != null)
+				return false;
+		} else if (!candidateEntity.equals(other.candidateEntity))
+			return false;
+		return true;
+	}
 	@Id
 	@GeneratedValue 	
 	@Column(name="InterviewID")

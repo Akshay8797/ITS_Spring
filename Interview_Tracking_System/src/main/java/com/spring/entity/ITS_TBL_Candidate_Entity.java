@@ -16,6 +16,27 @@ import javax.persistence.Table;
 @Table(name="its_tbl_candidate")
 public class ITS_TBL_Candidate_Entity {
 	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (int) (candidateId ^ (candidateId >>> 32));
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ITS_TBL_Candidate_Entity other = (ITS_TBL_Candidate_Entity) obj;
+		if (candidateId != other.candidateId)
+			return false;
+		return true;
+	}
 	@Id
 	@GeneratedValue 	
 	@Column(name="CandidateId")
