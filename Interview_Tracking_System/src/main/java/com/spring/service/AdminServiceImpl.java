@@ -450,7 +450,8 @@ List<ITS_TBL_User_Credentials_Entity> userList=userRepository.findBysessionId(au
 		{
 		ITS_TBL_Interview_Schedule_Entity scheduleEntity=interviewScheduleRepository.findByInterviewId(interviewId);
 		 scheduleEntity.setShareResult(shareResult);
-		 return interviewScheduleRepository.save(scheduleEntity);		
+		 interviewScheduleRepository.save(scheduleEntity);
+		 return "{\"result\": \"success\",\"message\": \"ShareDetails added\"}";
 		}
 		else
 			return "{\"result\": \"failure\",\"message\": \"Invalid Session Id\"}";
